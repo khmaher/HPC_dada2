@@ -126,6 +126,8 @@ Each pair of files relating to each biological sample should have the following 
 
 <sample_ID>_S<##>_R2_001.fastq.gz
 
+Where <sample_ID> is a unique identifier, and S<##> is a sample number (generally assigned by the sequencer itself).
+
 For example, a pair of files might look like this:
 
 SoilGB_S01_R1_001.fastq.gz
@@ -133,7 +135,7 @@ SoilGB_S01_R1_001.fastq.gz
 SoilGB_S01_R2_001.fastq.gz
 </details>
 
-<summary>Load your raw sequence data</summary>
+##<summary>Load your raw sequence data</summary>
 <details>
 If you have sequenced your samples with NEOF, and have been notified that your data
 has been received, then you should be able to find your data on the HPC server.
