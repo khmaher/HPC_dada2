@@ -1,10 +1,8 @@
 # HPC_dada2
 Example workflow to run a dada2 analysis using The University of Sheffield BESSEMER HPC.
 
-
-# Hello, world!
-## Getting Started - Access the HPC, load the required software and modules
-
+<summary>Getting Started - Access the HPC, load the required software and modules</summary>
+<details>
 To access the BESSEMER high-performance computer (HPC) you must be connected
 to the university network - this can be achieved remotely by using the
 virtual private network (VPN) service.
@@ -16,8 +14,10 @@ connection. This can be achieved using the command line (advanced) or software
 such as [MobaXterm](https://mobaxterm.mobatek.net/).
 
 [See the university pages for guidance on how to connect to the VPN](https://docs.hpc.shef.ac.uk/en/latest/hpc/index.html).
+</details>
 
-## Access a worker node on BESSEMER
+<summary>Access a worker node on BESSEMER</summary>
+<details>
 Once you have successfully logged into BESSEMER, you need to access a worker node:
 
 ```
@@ -33,8 +33,10 @@ to
 [<user>@bessemer-node001 ~]$
 ```
 ...where <user> is your The University of Sheffield (TUoS) IT username.
+</details>
 
-## Load the Genomics Software Repository
+<summary>Load the Genomics Software Repository</summary>
+<details>
 The Genommics Software Repository contains several pre-loaded pieces of software
 useful for a range of genomics-based analyses, including this one.
 
@@ -53,9 +55,10 @@ echo -e "if [[ -e '/usr/local/extras/Genomics' ]];\nthen\n\tsource /usr/local/ex
 source ~/.bash_profile
 ```
 Upon re-loading, you should see the message relating to the Genomics Software Repository above.
+</details>
 
-## Create a working directory and load your data
-
+<summary>Create a working directory and load your data</summary>
+<details>
 You should work in the directory /fastdata/ on BESSEMER as this allows shared access to your files
 and commands, useful for troubleshooting.
 
@@ -83,8 +86,10 @@ mkdir /fastdata/$USER/my_project/scripts
 mkdir /fastdata/$USER/my_project/raw_data
 mkdir /fastdata/$USER/my_project/working_data
 ```
+</details>
+
+<summary>Load your raw sequence data</summary>
 <details>
-<summary>## Load your raw sequence data</summary>
 If you have sequenced your samples with NEOF, and have been notified that your data
 has been received, then you should be able to find your data on the HPC server.
 
