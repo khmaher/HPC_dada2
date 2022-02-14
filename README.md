@@ -16,7 +16,7 @@ Whilst it has been written for use with The University of Sheffield's
 the below should be applicable to any GNU/Linux based HPC system, with
 appropriate modification (your mileage may vary).
 
-Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // []@graefox](https://twitter.com/graefox)
+Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@graefox](https://twitter.com/graefox)
 
 </details>
 
@@ -52,7 +52,8 @@ to
 ```
 [<user>@bessemer-node001 ~]$
 ```
-...where <user> is your The University of Sheffield (TUoS) IT username.
+...where \<user\> is your The University of Sheffield (TUoS) IT username.
+Wherever \<user\> appears in this document, substitute it with your University of Sheffield (TUoS) IT username.
 </details>
 
 <summary>Load the Genomics Software Repository</summary>
@@ -87,7 +88,6 @@ Check if you already have a directory in /fastadata
 ```
 ls /usr/<user>
 ```
-Wherever <user> appears in this document, substitute it with your University of Sheffield (TUoS) IT username.
 
 If you receive the message
 ```
