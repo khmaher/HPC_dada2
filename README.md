@@ -2,7 +2,7 @@
 ## Example workflow to run a dada2 analysis using The University of Sheffield BESSEMER HPC.
 
 ### 1) About
-<About, credits, and other information>
+<summary>About, credits, and other information</summary>
 <details>
 This HPC tutorial is based largely upon the dada2 (v.1.8) tutorial published by
 Benjamin Callahan on the dada2 GitHub page
@@ -16,7 +16,7 @@ Whilst it has been written for use with The University of Sheffield's
 the below should be applicable to any GNU/Linux based HPC system, with
 appropriate modification (your mileage may vary).
 
-Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // @graefox
+Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // []@graefox](https://twitter.com/graefox)
 
 </details>
 
