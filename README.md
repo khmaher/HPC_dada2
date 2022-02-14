@@ -16,6 +16,16 @@ Whilst it has been written for use with The University of Sheffield's
 the below should be applicable to any GNU/Linux based HPC system, with
 appropriate modification (your mileage may vary).
 
+Code which the user (that's you) must run is highlighted in a code block like this:
+```
+I am code - you must run me
+```
+
+Filepaths are highlighted in normal text like this:
+
+`/home/user/a_file_path`
+
+
 Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@graefox](https://twitter.com/graefox)
 
 </details>
@@ -80,7 +90,7 @@ Upon re-loading, you should see the message relating to the Genomics Software Re
 
 <summary>Create a working directory and load your data</summary>
 <details>
-You should work in the directory /fastdata/ on BESSEMER as this allows shared access to your files
+You should work in the directory `/fastdata` on BESSEMER as this allows shared access to your files
 and commands, useful for troubleshooting.
 
 Check if you already have a directory in /fastadata
@@ -93,7 +103,7 @@ If you receive the message
 ```
 ls: cannot access /fastdata/<user>: No such file or directory
 ```
-Then you need to create a new folder in /fastdata using the command exactly as it appears below:
+Then you need to create a new folder in `/fastdata` using the command exactly as it appears below:
 
 ```
 mkdir -m 0700 /fastdata/$USER
@@ -110,7 +120,7 @@ mkdir /fastdata/$USER/my_project/working_data
 
 <summary>Data file naming convention</summary>
 <details>
-The workflow assumes that the /fastdata/my_project/raw_data directory contains sequence data that is:
+The workflow assumes that the `/fastdata/my_project/raw_data` directory contains sequence data that is:
 
 * Paired (two files per biological sample)
 
@@ -135,20 +145,19 @@ SoilGB_S01_R1_001.fastq.gz
 SoilGB_S01_R2_001.fastq.gz
 </details>
 
-##<summary>Load your raw sequence data</summary>
+<summary>Load your raw sequence data</summary>
 <details>
 If you have sequenced your samples with NEOF, and have been notified that your data
 has been received, then you should be able to find your data on the HPC server.
 
-Data is generally stored in the shared space /shared/molecol2/NBAF/MiSeq/.
+Data is generally stored in the shared space `/shared/molecol2/NBAF/MiSeq/`.
 
-View the data directories contained and identify the one that belongs to you.
+View the data directories contained within it and identify the one that belongs to you.
 ```
 ls /shared/molecol2/NBAF/MiSeq/
 ```
 
-## Copy raw sequence data into /fastdata
-If, for example, your data directory was called "NBAF_project_010122", then you would
+If, for example, your data directory was called `NBAF_project_010122`, then you would
 copy it onto your raw_data directory with the following:
 ```
 cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/<user>/my_project/raw_data/
@@ -156,7 +165,11 @@ cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/<user>/my_proje
 
 Alternatively, to copy data from your personal computer onto the HPC you need to use a file transfer
 application such as 'scp' (advanced), MobaXterm, or [FileZilla](https://filezilla-project.org/).
-Ensure to copy the data into your /fastdata/my_project/raw_data folder.
+Ensure to copy the data into your `/fastdata/my_project/raw_data folder`.
 
 Run 'ls' on your raw_data folder and you should see something like the following
 </details>
+
+<Copy the dada2 R scripts>
+<details>
+Copy the required R scripts for the dada2 workflow into your `scripts`
