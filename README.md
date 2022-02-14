@@ -32,152 +32,152 @@ Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@gra
 
 <summary>2) Getting Started - Access the HPC, and load the required software and data.</summary>
 <details>
-<summary>Access the HPC</summary>
-<details>
-To access the BESSEMER high-performance computer (HPC) you must be connected
-to the university network - this can be achieved remotely by using the
-virtual private network (VPN) service.
+  <summary>Access the HPC</summary>
+  <details>
+  To access the BESSEMER high-performance computer (HPC) you must be connected
+  to the university network - this can be achieved remotely by using the
+  virtual private network (VPN) service.
 
-[Please see the university IT pages for details on how to connect to the VPN.](https://students.sheffield.ac.uk/it-services/vpn)
+  [Please see the university IT pages for details on how to connect to the VPN.](https://students.sheffield.ac.uk/it-services/vpn)
 
-Once connected to the VPN you also need to connect to the HPC using a secure shell (SSH)
-connection. This can be achieved using the command line (advanced) or software
-such as [MobaXterm](https://mobaxterm.mobatek.net/).
+  Once connected to the VPN you also need to connect to the HPC using a secure shell (SSH)
+  connection. This can be achieved using the command line (advanced) or software
+  such as [MobaXterm](https://mobaxterm.mobatek.net/).
 
-[See the university pages for guidance on how to connect to the VPN](https://docs.hpc.shef.ac.uk/en/latest/hpc/index.html).
-</details>
+  [See the university pages for guidance on how to connect to the VPN](https://docs.hpc.shef.ac.uk/en/latest/hpc/index.html).
+  </details>
 
-<summary>Access a worker node on BESSEMER</summary>
-<details>
-Once you have successfully logged into BESSEMER, you need to access a worker node:
+  <summary>Access a worker node on BESSEMER</summary>
+  <details>
+  Once you have successfully logged into BESSEMER, you need to access a worker node:
 
-```
-srun --pty bash -l
-```
-You should see that the command prompt has changed from
+  ```
+  srun --pty bash -l
+  ```
+  You should see that the command prompt has changed from
 
-```
-[<user>@bessemer-login2 ~]$
-```
-to
-```
-[<user>@bessemer-node001 ~]$
-```
-...where \<user\> is your The University of Sheffield (TUoS) IT username.
-Wherever \<user\> appears in this document, substitute it with your University of Sheffield (TUoS) IT username.
-</details>
+  ```
+  [<user>@bessemer-login2 ~]$
+  ```
+  to
+  ```
+  [<user>@bessemer-node001 ~]$
+  ```
+  ...where \<user\> is your The University of Sheffield (TUoS) IT username.
+  Wherever \<user\> appears in this document, substitute it with your University of Sheffield (TUoS) IT username.
+  </details>
 
-<summary>Load the Genomics Software Repository</summary>
-<details>
-The Genomics Software Repository contains several pre-loaded pieces of software
-useful for a range of genomics-based analyses, including this one.
+  <summary>Load the Genomics Software Repository</summary>
+  <details>
+  The Genomics Software Repository contains several pre-loaded pieces of software
+  useful for a range of genomics-based analyses, including this one.
 
-Did you receive the following message when you accessed the worker node?
-```
-Your account is set up to use the Genomics Software Repository
-```
+  Did you receive the following message when you accessed the worker node?
+  ```
+  Your account is set up to use the Genomics Software Repository
+  ```
 
-If so, you are set up and do not need to do the following step.
-If not, enter the following:
-```
-echo -e "if [[ -e '/usr/local/extras/Genomics' ]];\nthen\n\tsource /usr/local/extras/Genomics/.bashrc\nfi" >> $HOME/.bash_profile
-```
-...and then re-load your profile:
-```
-source ~/.bash_profile
-```
-Upon re-loading, you should see the message relating to the Genomics Software Repository above.
-</details>
+  If so, you are set up and do not need to do the following step.
+  If not, enter the following:
+  ```
+  echo -e "if [[ -e '/usr/local/extras/Genomics' ]];\nthen\n\tsource /usr/local/extras/Genomics/.bashrc\nfi" >> $HOME/.bash_profile
+  ```
+  ...and then re-load your profile:
+  ```
+  source ~/.bash_profile
+  ```
+  Upon re-loading, you should see the message relating to the Genomics Software Repository above.
+  </details>
 
-<summary>Create a working directory and load your data</summary>
-<details>
-You should work in the directory `/fastdata` on BESSEMER as this allows shared access to your files
-and commands, useful for troubleshooting.
+  <summary>Create a working directory and load your data</summary>
+  <details>
+  You should work in the directory `/fastdata` on BESSEMER as this allows shared access to your files
+  and commands, useful for troubleshooting.
 
-Check if you already have a directory in `/fastdata`.
+  Check if you already have a directory in `/fastdata`.
 
-```
-ls /usr/<user>
-```
+  ```
+  ls /usr/<user>
+  ```
 
-If you receive the message
-```
-ls: cannot access /fastdata/<user>: No such file or directory
-```
-Then you need to create a new folder in `/fastdata` using the command exactly as it appears below:
+  If you receive the message
+  ```
+  ls: cannot access /fastdata/<user>: No such file or directory
+  ```
+  Then you need to create a new folder in `/fastdata` using the command exactly as it appears below:
 
-```
-mkdir -m 0700 /fastdata/$USER
-```
+  ```
+  mkdir -m 0700 /fastdata/$USER
+  ```
 
-Create new subdirectories to keep your scripts and data files organised:
-```
-mkdir /fastdata/$USER/my_project
-mkdir /fastdata/$USER/my_project/scripts
-mkdir /fastdata/$USER/my_project/raw_data
-mkdir /fastdata/$USER/my_project/working_data
-```
-</details>
+  Create new subdirectories to keep your scripts and data files organised:
+  ```
+  mkdir /fastdata/$USER/my_project
+  mkdir /fastdata/$USER/my_project/scripts
+  mkdir /fastdata/$USER/my_project/raw_data
+  mkdir /fastdata/$USER/my_project/working_data
+  ```
+  </details>
 
-<summary>Data file naming convention</summary>
-<details>
-The workflow assumes that the `/fastdata/my_project/raw_data` directory contains sequence data that is:
+  <summary>Data file naming convention</summary>
+  <details>
+  The workflow assumes that the `/fastdata/my_project/raw_data` directory contains sequence data that is:
 
-* Paired (two files per biological sample)
+  * Paired (two files per biological sample)
 
-* Demultiplexed
+  * Demultiplexed
 
-* FASTQ format
+  * FASTQ format
 
-* (optional, but recommended) in the compressed .gz format
+  * (optional, but recommended) in the compressed .gz format
 
-Each pair of files relating to each biological sample should have the following naming convention:
+  Each pair of files relating to each biological sample should have the following naming convention:
 
-`<sample_ID>_S<##>_R1_001.fastq.gz`
+  `<sample_ID>_S<##>_R1_001.fastq.gz`
 
-`<sample_ID>_S<##>_R2_001.fastq.gz`
+  `<sample_ID>_S<##>_R2_001.fastq.gz`
 
-Where <sample_ID> is a unique identifier, and S<##> is a sample number (generally assigned by the sequencer itself).
+  Where <sample_ID> is a unique identifier, and S<##> is a sample number (generally assigned by the sequencer itself).
 
-For example, a pair of files might look like this:
+  For example, a pair of files might look like this:
 
-`SoilGB_S01_R1_001.fastq.gz`
+  `SoilGB_S01_R1_001.fastq.gz`
 
-`SoilGB_S01_R2_001.fastq.gz`
-</details>
+  `SoilGB_S01_R2_001.fastq.gz`
+  </details>
 
-<summary>Load your raw sequence data</summary>
-<details>
-If you have sequenced your samples with NEOF, and have been notified that your data
-has been received, then you should be able to find your data on the HPC server.
+  <summary>Load your raw sequence data</summary>
+  <details>
+  If you have sequenced your samples with NEOF, and have been notified that your data
+  has been received, then you should be able to find your data on the HPC server.
 
-Data is generally stored in the shared space `/shared/molecol2/NBAF/MiSeq/`.
+  Data is generally stored in the shared space `/shared/molecol2/NBAF/MiSeq/`.
 
-View the data directories contained within it and identify the one that belongs to you.
-```
-ls /shared/molecol2/NBAF/MiSeq/
-```
+  View the data directories contained within it and identify the one that belongs to you.
+  ```
+  ls /shared/molecol2/NBAF/MiSeq/
+  ```
 
-If, for example, your data directory was called `NBAF_project_010122`, then you would
-copy it onto your raw_data directory with the following:
-```
-cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/<user>/my_project/raw_data/
-```
+  If, for example, your data directory was called `NBAF_project_010122`, then you would
+  copy it onto your raw_data directory with the following:
+  ```
+  cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/<user>/my_project/raw_data/
+  ```
 
-Alternatively, to copy data from your personal computer onto the HPC you need to use a file transfer
-application such as 'scp' (advanced), MobaXterm, or [FileZilla](https://filezilla-project.org/).
-Ensure to copy the data into your `/fastdata/my_project/raw_data folder`.
+  Alternatively, to copy data from your personal computer onto the HPC you need to use a file transfer
+  application such as 'scp' (advanced), MobaXterm, or [FileZilla](https://filezilla-project.org/).
+  Ensure to copy the data into your `/fastdata/my_project/raw_data folder`.
 
-Run 'ls' on your `raw_data` folder and you should see something like the following
-</details>
+  Run 'ls' on your `raw_data` folder and you should see something like the following
+  </details>
 
-<summary>Copy the dada2 R scripts</summary>
-<details>
-Copy the required R scripts for the dada2 workflow into your `scripts`
+  <summary>Copy the dada2 R scripts</summary>
+  <details>
+  Copy the required R scripts for the dada2 workflow into your `scripts`
 
-```
-cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
-```
-</details>
+  ```
+  cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
+  ```
+  </details>
 
 </details>
