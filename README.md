@@ -108,6 +108,27 @@ mkdir /fastdata/$USER/my_project/working_data
 ```
 </details>
 
+<summary>Data file naming convention</summary>
+<details>
+The workflow assumes that the /fastdata/my_project/raw_data directory contains sequence data that is:
+* Paired (two files per biological sample)
+* Demultiplexed
+* FASTQ format
+* (optional, but recommended) in the compressed .gz format
+
+Each pair of files relating to each biological sample should have the following naming convention:
+
+<sample_ID>_S<##>_R1_001.fastq.gz
+
+<sample_ID>_S<##>_R2_001.fastq.gz
+
+For example, a pair of files might look like this:
+
+Soil001_S01_R1_001.fastq.gz
+
+Soil001_S01_R2_001.fastq.gz
+
+
 <summary>Load your raw sequence data</summary>
 <details>
 If you have sequenced your samples with NEOF, and have been notified that your data
@@ -121,17 +142,6 @@ ls /shared/molecol2/NBAF/MiSeq/
 ```
 
 ## Copy raw sequence data into /fastdata
-The workflow assumes that the /fastdata/my_project/raw_data directory contains sequence data that is:
-* Paired (two files per biological sample)
-* Demultiplexed
-* FASTQ format
-* (optional, but recommended) in the compressed .gz format
-
-Each pair of files relating to each biological sample should have the following naming convention:
-
-<sample_ID>_S##_R1_001.fastq.gz
-<sample_ID>_S##_R2_001.fastq.gz
-
 If, for example, your data directory was called "NBAF_project_010122", then you would
 copy it onto your raw_data directory with the following:
 ```
