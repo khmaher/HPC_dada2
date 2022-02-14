@@ -111,9 +111,13 @@ mkdir /fastdata/$USER/my_project/working_data
 <summary>Data file naming convention</summary>
 <details>
 The workflow assumes that the /fastdata/my_project/raw_data directory contains sequence data that is:
+
 * Paired (two files per biological sample)
+
 * Demultiplexed
+
 * FASTQ format
+
 * (optional, but recommended) in the compressed .gz format
 
 Each pair of files relating to each biological sample should have the following naming convention:
@@ -124,10 +128,10 @@ Each pair of files relating to each biological sample should have the following 
 
 For example, a pair of files might look like this:
 
-Soil001_S01_R1_001.fastq.gz
+SoilGB_S01_R1_001.fastq.gz
 
-Soil001_S01_R2_001.fastq.gz
-
+SoilGB_S01_R2_001.fastq.gz
+</details>
 
 <summary>Load your raw sequence data</summary>
 <details>
