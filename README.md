@@ -1,7 +1,26 @@
 # HPC_dada2
 ## Example workflow to run a dada2 analysis using The University of Sheffield BESSEMER HPC.
 
-### 1) Getting Started - Access the HPC, load the required software, data, and modules
+### 1) About
+<About, credits, and other information>
+<details>
+This HPC tutorial is based largely upon the dada2 (v.1.8) tutorial published by
+Benjamin Callahan on the dada2 GitHub page
+(https://benjjneb.github.io/dada2/tutorial_1_8.html).
+
+The core of the data processing is identical to that in the above, with modifications
+to allow it to be easily run on a remote HPC system.
+
+Whilst it has been written for use with The University of Sheffield's
+[BESSEMER](https://docs.hpc.shef.ac.uk/en/latest/bessemer/index.html) system,
+the below should be applicable to any GNU/Linux based HPC system, with
+appropriate modification (your mileage may vary).
+
+Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // @graefox
+
+</details>
+
+### 2) Getting Started - Access the HPC, and load the required software and data.
 <summary>Access the HPC</summary>
 <details>
 To access the BESSEMER high-performance computer (HPC) you must be connected
