@@ -1,7 +1,8 @@
 # HPC_dada2
-Example workflow to run a dada2 analysis using The University of Sheffield BESSEMER HPC.
+## Example workflow to run a dada2 analysis using The University of Sheffield BESSEMER HPC.
 
-<summary>Getting Started - Access the HPC, load the required software and modules</summary>
+### Getting Started - Access the HPC, load the required software, data, and modules
+<summary>Access the HPC</summary>
 <details>
 To access the BESSEMER high-performance computer (HPC) you must be connected
 to the university network - this can be achieved remotely by using the
@@ -99,7 +100,7 @@ View the data directories contained and identify the one that belongs to you.
 ```
 ls /shared/molecol2/NBAF/MiSeq/
 ```
-</details>
+
 ## Copy raw sequence data into /fastdata
 If, for example, your data directory was called "NBAF_project_010122", then you would
 copy it onto your raw_data directory with the following:
@@ -110,3 +111,4 @@ cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/<user>/my_proje
 Alternatively, to copy data from your personal computer onto the HPC you need to use a file transfer
 application such as 'scp' (advanced), MobaXterm, or [FileZilla](https://filezilla-project.org/).
 Ensure to copy the data into your /fastdata/my_project/raw_data folder.
+</details>
