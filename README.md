@@ -170,6 +170,6 @@ Ensure to copy the data into your `/fastdata/my_project/raw_data folder`.
 Run 'ls' on your raw_data folder and you should see something like the following
 </details>
 
-<Copy the dada2 R scripts>
+<summary>Copy the dada2 R scripts</summary>
 <details>
 Copy the required R scripts for the dada2 workflow into your `scripts`
