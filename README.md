@@ -176,3 +176,4 @@ Copy the required R scripts for the dada2 workflow into your `scripts`
 ```
 cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
 ```
+</details>
