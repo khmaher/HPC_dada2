@@ -93,7 +93,7 @@ Upon re-loading, you should see the message relating to the Genomics Software Re
 You should work in the directory `/fastdata` on BESSEMER as this allows shared access to your files
 and commands, useful for troubleshooting.
 
-Check if you already have a directory in /fastadata
+Check if you already have a directory in `/fastdata`.
 
 ```
 ls /usr/<user>
