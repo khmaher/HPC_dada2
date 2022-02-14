@@ -173,6 +173,7 @@ Run 'ls' on your raw_data folder and you should see something like the following
 <summary>Copy the dada2 R scripts</summary>
 <details>
 Copy the required R scripts for the dada2 workflow into your `scripts`
+
 ```
 cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
 ```
