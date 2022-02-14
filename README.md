@@ -83,7 +83,7 @@ mkdir /fastdata/$USER/my_project/scripts
 mkdir /fastdata/$USER/my_project/raw_data
 mkdir /fastdata/$USER/my_project/working_data
 ```
-
+<details>
 <summary>## Load your raw sequence data</summary>
 If you have sequenced your samples with NEOF, and have been notified that your data
 has been received, then you should be able to find your data on the HPC server.
@@ -94,7 +94,7 @@ View the data directories contained and identify the one that belongs to you.
 ```
 ls /shared/molecol2/NBAF/MiSeq/
 ```
-
+</details>
 ## Copy raw sequence data into /fastdata
 If, for example, your data directory was called "NBAF_project_010122", then you would
 copy it onto your raw_data directory with the following:
