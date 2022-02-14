@@ -58,7 +58,7 @@ Wherever \<user\> appears in this document, substitute it with your University o
 
 <summary>Load the Genomics Software Repository</summary>
 <details>
-The Genommics Software Repository contains several pre-loaded pieces of software
+The Genomics Software Repository contains several pre-loaded pieces of software
 useful for a range of genomics-based analyses, including this one.
 
 Did you receive the following message when you accessed the worker node?
@@ -121,6 +121,16 @@ ls /shared/molecol2/NBAF/MiSeq/
 ```
 
 ## Copy raw sequence data into /fastdata
+The workflow assumes that the /fastdata/my_project/raw_data directory contains sequence data that is:
+* Paired (two files per biological sample)
+* Demultiplexed
+* FASTQ format
+* (optional, but recommended) in the compressed .gz format
+
+Each pair of files relating to each biological sample should have the following naming convention:
+/<sample_ID/>_/>S/#/#/_R1_001.fastq.gz
+/<sample_ID/>_/>S/#/#/_R2_001.fastq.gz
+
 If, for example, your data directory was called "NBAF_project_010122", then you would
 copy it onto your raw_data directory with the following:
 ```
@@ -130,4 +140,6 @@ cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/<user>/my_proje
 Alternatively, to copy data from your personal computer onto the HPC you need to use a file transfer
 application such as 'scp' (advanced), MobaXterm, or [FileZilla](https://filezilla-project.org/).
 Ensure to copy the data into your /fastdata/my_project/raw_data folder.
+
+Run 'ls' on your raw_data folder and you should see something like the following
 </details>
