@@ -128,8 +128,9 @@ The workflow assumes that the /fastdata/my_project/raw_data directory contains s
 * (optional, but recommended) in the compressed .gz format
 
 Each pair of files relating to each biological sample should have the following naming convention:
-/<sample_ID/>_/>S/#/#/_R1_001.fastq.gz
-/<sample_ID/>_/>S/#/#/_R2_001.fastq.gz
+
+<sample_ID>_S##_R1_001.fastq.gz
+<sample_ID>_S##_R2_001.fastq.gz
 
 If, for example, your data directory was called "NBAF_project_010122", then you would
 copy it onto your raw_data directory with the following:
