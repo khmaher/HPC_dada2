@@ -30,7 +30,8 @@ Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@gra
 
 </details>
 
-### 2) Getting Started - Access the HPC, and load the required software and data.
+<summary>2) Getting Started - Access the HPC, and load the required software and data.</summary>
+<details>
 <summary>Access the HPC</summary>
 <details>
 To access the BESSEMER high-performance computer (HPC) you must be connected
@@ -177,4 +178,6 @@ Copy the required R scripts for the dada2 workflow into your `scripts`
 ```
 cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
 ```
+</details>
+
 </details>
