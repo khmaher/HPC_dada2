@@ -3,7 +3,7 @@
 
 ### 1) Getting Started - Access the HPC, load the required software, data, and modules
 <summary>Access the HPC</summary>
-<Information>
+<details>
 To access the BESSEMER high-performance computer (HPC) you must be connected
 to the university network - this can be achieved remotely by using the
 virtual private network (VPN) service.
@@ -15,7 +15,7 @@ connection. This can be achieved using the command line (advanced) or software
 such as [MobaXterm](https://mobaxterm.mobatek.net/).
 
 [See the university pages for guidance on how to connect to the VPN](https://docs.hpc.shef.ac.uk/en/latest/hpc/index.html).
-</Information>
+</details>
 
 <summary>Access a worker node on BESSEMER</summary>
 <details>
