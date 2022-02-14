@@ -32,6 +32,8 @@ Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@gra
 
 <summary>2) Getting Started - Access the HPC, and load the required software and data.</summary>
 <details>
+  <summary>Click to expand</summary>
+  <details>
   <summary>Access the HPC</summary>
   <details>
   To access the BESSEMER high-performance computer (HPC) you must be connected
@@ -178,6 +180,8 @@ Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@gra
   ```
   cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
   ```
+  </details>
+
   </details>
 
 </details>
