@@ -132,17 +132,17 @@ The workflow assumes that the `/fastdata/my_project/raw_data` directory contains
 
 Each pair of files relating to each biological sample should have the following naming convention:
 
-<sample_ID>_S<##>_R1_001.fastq.gz
+`<sample_ID>_S<##>_R1_001.fastq.gz`
 
-<sample_ID>_S<##>_R2_001.fastq.gz
+`<sample_ID>_S<##>_R2_001.fastq.gz`
 
 Where <sample_ID> is a unique identifier, and S<##> is a sample number (generally assigned by the sequencer itself).
 
 For example, a pair of files might look like this:
 
-SoilGB_S01_R1_001.fastq.gz
+`SoilGB_S01_R1_001.fastq.gz`
 
-SoilGB_S01_R2_001.fastq.gz
+`SoilGB_S01_R2_001.fastq.gz`
 </details>
 
 <summary>Load your raw sequence data</summary>
@@ -167,7 +167,7 @@ Alternatively, to copy data from your personal computer onto the HPC you need to
 application such as 'scp' (advanced), MobaXterm, or [FileZilla](https://filezilla-project.org/).
 Ensure to copy the data into your `/fastdata/my_project/raw_data folder`.
 
-Run 'ls' on your raw_data folder and you should see something like the following
+Run 'ls' on your `raw_data` folder and you should see something like the following
 </details>
 
 <summary>Copy the dada2 R scripts</summary>
