@@ -31,7 +31,7 @@ Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@gra
 
 </details>
 
-<summary>Getting Started - Access the HPC, and load the required software and data.</summary>
+<summary>2) Getting Started - Access the HPC, and load the required software and data.</summary>
 <details>
 <summary>Access the HPC</summary>
 
@@ -181,7 +181,7 @@ cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
 ```
 </details>
 
-<summary>Load sequence data into R and perform preliminary filtering and quality trimming.</summary>
+<summary>3) Load data into R and perform preliminary filtering and quality trimming.</summary>
 <summary>Section 01</summary>
 <details>
 module load R
