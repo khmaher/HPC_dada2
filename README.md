@@ -2,8 +2,8 @@
 ## Example workflow to run a dada2 analysis using The University of Sheffield BESSEMER HPC.
 
 <summary>1) About</summary>
-
-<summary>1) About, credits, and other information</summary>
+<details>
+<summary>About, credits, and other information</summary>
 
 This HPC tutorial is based largely upon the dada2 (v.1.8) tutorial published by
 Benjamin Callahan on the dada2 GitHub page
@@ -30,7 +30,7 @@ Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@gra
 
 </details>
 
-<summary>2) Getting Started - Access the HPC, and load the required software and data.</summary>
+<summary>2) Getting Started - Access the HPC, and load the required software and data.</summary><blockquote>
 <details>
 <summary>Access the HPC</summary>
 <details>
@@ -47,7 +47,6 @@ such as [MobaXterm](https://mobaxterm.mobatek.net/).
 [See the university pages for guidance on how to connect to the VPN](https://docs.hpc.shef.ac.uk/en/latest/hpc/index.html).
 
 <summary>Access a worker node on BESSEMER</summary>
-<details>
 Once you have successfully logged into BESSEMER, you need to access a worker node:
 
 ```
