@@ -1,9 +1,10 @@
 # HPC_dada2
 ## Example workflow to run a dada2 analysis using The University of Sheffield BESSEMER HPC.
 
-### 1) About
-<summary>About, credits, and other information</summary>
+<summary>1) About</summary>
 <details>
+<summary>About, credits, and other information</summary>
+
 This HPC tutorial is based largely upon the dada2 (v.1.8) tutorial published by
 Benjamin Callahan on the dada2 GitHub page
 (https://benjjneb.github.io/dada2/tutorial_1_8.html).
@@ -178,3 +179,8 @@ Copy the required R scripts for the dada2 workflow into your `scripts`
 cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
 ```
 </details>
+
+### 3) Load sequence data into R and perform preliminary filtering and quality trimming
+
+module load R
+/usr/local/packages/live/eb/R/4.0.0-foss-2020a/bin/R
