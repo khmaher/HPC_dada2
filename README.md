@@ -46,8 +46,7 @@ such as [MobaXterm](https://mobaxterm.mobatek.net/).
 
 [See the university pages for guidance on how to connect to the VPN](https://docs.hpc.shef.ac.uk/en/latest/hpc/index.html).
 </details>
-<summary>Access a worker node on BESSEMER</summary>
-<details>
+<Access a worker node on BESSEMER>
 Once you have successfully logged into BESSEMER, you need to access a worker node:
 
 ```
