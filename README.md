@@ -1,8 +1,9 @@
 # HPC_dada2
 ## Example workflow to run a dada2 analysis using The University of Sheffield BESSEMER HPC.
 
-<summary><1) About, credits, and other information></summary>
+<summary>1) About</summary>
 
+<summary>1) About, credits, and other information</summary>
 
 This HPC tutorial is based largely upon the dada2 (v.1.8) tutorial published by
 Benjamin Callahan on the dada2 GitHub page
