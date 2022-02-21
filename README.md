@@ -22,10 +22,9 @@ Code which the user (that's you) must run is highlighted in a code block like th
 I am code - you must run me
 ```
 
-Filepaths are highlighted in normal text like this:
+Filepaths are highlighted within normal text like this:
 
 `/home/user/a_file_path`
-
 
 Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@graefox](https://twitter.com/graefox)
 
@@ -46,7 +45,6 @@ connection. This can be achieved using the command line (advanced) or software
 such as [MobaXterm](https://mobaxterm.mobatek.net/).
 
 [See the university pages for guidance on how to connect to the VPN](https://docs.hpc.shef.ac.uk/en/latest/hpc/index.html).
-</details>
 
 <summary>Access a worker node on BESSEMER</summary>
 <details>
@@ -66,10 +64,9 @@ to
 ```
 ...where \<user\> is your The University of Sheffield (TUoS) IT username.
 Wherever \<user\> appears in this document, substitute it with your University of Sheffield (TUoS) IT username.
-</details>
 
 <summary>Load the Genomics Software Repository</summary>
-<details>
+
 The Genomics Software Repository contains several pre-loaded pieces of software
 useful for a range of genomics-based analyses, including this one.
 
@@ -88,10 +85,9 @@ echo -e "if [[ -e '/usr/local/extras/Genomics' ]];\nthen\n\tsource /usr/local/ex
 source ~/.bash_profile
 ```
 Upon re-loading, you should see the message relating to the Genomics Software Repository above.
-</details>
 
 <summary>Create a working directory and load your data</summary>
-<details>
+
 You should work in the directory `/fastdata` on BESSEMER as this allows shared access to your files
 and commands, useful for troubleshooting.
 
@@ -118,10 +114,9 @@ mkdir /fastdata/$USER/my_project/scripts
 mkdir /fastdata/$USER/my_project/raw_data
 mkdir /fastdata/$USER/my_project/working_data
 ```
-</details>
 
 <summary>Data file naming convention</summary>
-<details>
+
 The workflow assumes that the `/fastdata/my_project/raw_data` directory contains sequence data that is:
 
 * Paired (two files per biological sample)
@@ -145,10 +140,9 @@ For example, a pair of files might look like this:
 `SoilGB_S01_R1_001.fastq.gz`
 
 `SoilGB_S01_R2_001.fastq.gz`
-</details>
 
 <summary>Load your raw sequence data</summary>
-<details>
+
 If you have sequenced your samples with NEOF, and have been notified that your data
 has been received, then you should be able to find your data on the HPC server.
 
@@ -170,16 +164,14 @@ application such as 'scp' (advanced), MobaXterm, or [FileZilla](https://filezill
 Ensure to copy the data into your `/fastdata/my_project/raw_data folder`.
 
 Run 'ls' on your `raw_data` folder and you should see something like the following
-</details>
 
 <summary>Copy the dada2 R scripts</summary>
-<details>
+
 Copy the required R scripts for the dada2 workflow into your `scripts`
 
 ```
 cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
 ```
-</details>
 
 <summary>3) Load data into R and perform preliminary filtering and quality trimming.</summary>
 <summary>Section 01</summary>
