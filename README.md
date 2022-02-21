@@ -30,8 +30,7 @@
   </details>
 
 <summary>2) Getting Started - Access the HPC, and load the required software and data.</summary>
-  <details>
-  <summary>2.1) Access the HPC</summary>
+  <details><summary>2.1) Access the HPC</summary><blockquote>
   To access the BESSEMER high-performance computer (HPC) you must be connected
   to the university network - this can be achieved remotely by using the
   virtual private network (VPN) service.
@@ -43,8 +42,9 @@
   such as [MobaXterm](https://mobaxterm.mobatek.net/).
 
   [See the university pages for guidance on how to connect to the VPN](https://docs.hpc.shef.ac.uk/en/latest/hpc/index.html).
+  </details></blockquote>
 
-  <summary>2.2) Access a worker node on BESSEMER</summary>
+  <details><summary>2.2) Access a worker node on BESSEMER</summary><blockquote>
   Once you have successfully logged into BESSEMER, you need to access a worker node:
 
   ```
@@ -61,5 +61,5 @@
   ```
   ...where \<user\> is your The University of Sheffield (TUoS) IT username.
   Wherever \<user\> appears in this document, substitute it with your University of Sheffield (TUoS) IT username.
-  
-  </details>
+
+  </details></blockquote>
