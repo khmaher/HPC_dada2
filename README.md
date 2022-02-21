@@ -3,7 +3,7 @@
 
 <summary>1) About</summary>
 <details>
-<summary>About, credits, and other information</summary>
+<summary>1.1) About, credits, and other information</summary>
 
 This HPC tutorial is based largely upon the dada2 (v.1.8) tutorial published by
 Benjamin Callahan on the dada2 GitHub page
@@ -32,7 +32,7 @@ Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@gra
 
 <summary>2) Getting Started - Access the HPC, and load the required software and data.</summary><blockquote>
 <details>
-<summary>Access the HPC</summary>
+<summary>2.1) Access the HPC</summary>
 <details>
 To access the BESSEMER high-performance computer (HPC) you must be connected
 to the university network - this can be achieved remotely by using the
@@ -46,7 +46,7 @@ such as [MobaXterm](https://mobaxterm.mobatek.net/).
 
 [See the university pages for guidance on how to connect to the VPN](https://docs.hpc.shef.ac.uk/en/latest/hpc/index.html).
 
-<summary>Access a worker node on BESSEMER</summary><blockquote>
+<summary>2.2) Access a worker node on BESSEMER</summary><blockquote>
 Once you have successfully logged into BESSEMER, you need to access a worker node:
 
 ```
@@ -171,7 +171,7 @@ Copy the required R scripts for the dada2 workflow into your `scripts`
 ```
 cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
 ```
-
+</details>
 <summary>3) Load data into R and perform preliminary filtering and quality trimming.</summary>
 <summary>Section 01</summary>
 <details>
