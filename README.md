@@ -35,4 +35,31 @@
   To access the BESSEMER high-performance computer (HPC) you must be connected
   to the university network - this can be achieved remotely by using the
   virtual private network (VPN) service.
+
+  [Please see the university IT pages for details on how to connect to the VPN.](https://students.sheffield.ac.uk/it-services/vpn)
+
+  Once connected to the VPN you also need to connect to the HPC using a secure shell (SSH)
+  connection. This can be achieved using the command line (advanced) or software
+  such as [MobaXterm](https://mobaxterm.mobatek.net/).
+
+  [See the university pages for guidance on how to connect to the VPN](https://docs.hpc.shef.ac.uk/en/latest/hpc/index.html).
+
+  <summary>2.2) Access a worker node on BESSEMER</summary>
+  Once you have successfully logged into BESSEMER, you need to access a worker node:
+
+  ```
+  srun --pty bash -l
+  ```
+  You should see that the command prompt has changed from
+
+  ```
+  [<user>@bessemer-login2 ~]$
+  ```
+  to
+  ```
+  [<user>@bessemer-node001 ~]$
+  ```
+  ...where \<user\> is your The University of Sheffield (TUoS) IT username.
+  Wherever \<user\> appears in this document, substitute it with your University of Sheffield (TUoS) IT username.
+  
   </details>
