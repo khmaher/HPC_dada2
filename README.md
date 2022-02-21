@@ -63,3 +63,82 @@
   Wherever \<user\> appears in this document, substitute it with your University of Sheffield (TUoS) IT username.
 
   </details></blockquote>
+
+  <details><summary>2.2) Load the Genomics Software Repository</summary><blockquote>
+
+  The Genomics Software Repository contains several pre-loaded pieces of software
+  useful for a range of genomics-based analyses, including this one.
+
+  Did you receive the following message when you accessed the worker node?
+  ```
+  Your account is set up to use the Genomics Software Repository
+  ```
+
+  If so, you are set up and do not need to do the following step.
+  If not, enter the following:
+  ```
+  echo -e "if [[ -e '/usr/local/extras/Genomics' ]];\nthen\n\tsource /usr/local/extras/Genomics/.bashrc\nfi" >> $HOME/.bash_profile
+  ```
+  ...and then re-load your profile:
+  ```
+  source ~/.bash_profile
+  ```
+  Upon re-loading, you should see the message relating to the Genomics Software Repository above.
+  </details></blockquote>
+
+  <details><summary>2.3) Create a working directory and load your data</summary><blockquote>
+
+  You should work in the directory `/fastdata` on BESSEMER as this allows shared access to your files
+  and commands, useful for troubleshooting.
+
+  Check if you already have a directory in `/fastdata`.
+
+  ```
+  ls /usr/<user>
+  ```
+
+  If you receive the message
+  ```
+  ls: cannot access /fastdata/<user>: No such file or directory
+  ```
+  Then you need to create a new folder in `/fastdata` using the command exactly as it appears below:
+
+  ```
+  mkdir -m 0700 /fastdata/$USER
+  ```
+
+  Create new subdirectories to keep your scripts and data files organised:
+  ```
+  mkdir /fastdata/$USER/my_project
+  mkdir /fastdata/$USER/my_project/scripts
+  mkdir /fastdata/$USER/my_project/raw_data
+  mkdir /fastdata/$USER/my_project/working_data
+  ```
+  </details></blockquote>
+
+  <summary><details>2.4) Data file naming convention</summary><blockquote>
+
+  The workflow assumes that the `/fastdata/my_project/raw_data` directory contains sequence data that is:
+
+  * Paired (two files per biological sample)
+
+  * Demultiplexed
+
+  * FASTQ format
+
+  * (optional, but recommended) in the compressed .gz format
+
+  Each pair of files relating to each biological sample should have the following naming convention:
+
+  `<sample_ID>_S<##>_R1_001.fastq.gz`
+
+  `<sample_ID>_S<##>_R2_001.fastq.gz`
+
+  Where <sample_ID> is a unique identifier, and S<##> is a sample number (generally assigned by the sequencer itself).
+
+  For example, a pair of files might look like this:
+
+  `SoilGB_S01_R1_001.fastq.gz`
+
+  `SoilGB_S01_R2_001.fastq.gz`
+  </details></blockquote>
