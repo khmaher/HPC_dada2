@@ -168,11 +168,17 @@
   Run 'ls' on your `raw_data` folder and you should see something like the following
   </details></blockquote>
 
-  <details><summary>Copy the dada2 R scripts</summary><blockquote>
+  <details><summary>2.6) Copy the dada2 R scripts</summary><blockquote>
 
   Copy the required R scripts for the dada2 workflow into your `scripts`
 
   ```
   cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
   ```
+  </details></blockquote>
+
+<summary>3) Load data into R and perform preliminary filtering and quality trimming.</summary>
+  <details><summary>Section 01</summary><blockquote>
+  module load R
+  /usr/local/packages/live/eb/R/4.0.0-foss-2020a/bin/R
   </details></blockquote>
