@@ -31,9 +31,10 @@ Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@gra
 
 </details>
 
-### 2) Getting Started - Access the HPC, and load the required software and data.
-<summary>Access the HPC</summary>
+<summary>Getting Started - Access the HPC, and load the required software and data.</summary>
 <details>
+<summary>Access the HPC</summary>
+
 To access the BESSEMER high-performance computer (HPC) you must be connected
 to the university network - this can be achieved remotely by using the
 virtual private network (VPN) service.
@@ -180,7 +181,9 @@ cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
 ```
 </details>
 
-### 3) Load sequence data into R and perform preliminary filtering and quality trimming
-
+<summary>Load sequence data into R and perform preliminary filtering and quality trimming.</summary>
+<summary>Section 01</summary>
+<details>
 module load R
 /usr/local/packages/live/eb/R/4.0.0-foss-2020a/bin/R
+</details>
