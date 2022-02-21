@@ -116,7 +116,7 @@
   ```
   </details></blockquote>
 
-  <summary><details>2.4) Data file naming convention</summary><blockquote>
+  <details><summary>2.4) Data file naming convention</summary><blockquote>
 
   The workflow assumes that the `/fastdata/my_project/raw_data` directory contains sequence data that is:
 
