@@ -46,7 +46,7 @@ such as [MobaXterm](https://mobaxterm.mobatek.net/).
 
 [See the university pages for guidance on how to connect to the VPN](https://docs.hpc.shef.ac.uk/en/latest/hpc/index.html).
 
-<summary>Access a worker node on BESSEMER</summary>
+<summary>Access a worker node on BESSEMER</summary><blockquote>
 Once you have successfully logged into BESSEMER, you need to access a worker node:
 
 ```
@@ -63,7 +63,7 @@ to
 ```
 ...where \<user\> is your The University of Sheffield (TUoS) IT username.
 Wherever \<user\> appears in this document, substitute it with your University of Sheffield (TUoS) IT username.
-</details>
+
 <summary>Load the Genomics Software Repository</summary>
 
 The Genomics Software Repository contains several pre-loaded pieces of software
