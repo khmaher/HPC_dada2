@@ -142,3 +142,37 @@
 
   `SoilGB_S01_R2_001.fastq.gz`
   </details></blockquote>
+
+  <details><summary>2.5) Load your raw sequence data</summary><blockquote>
+
+  If you have sequenced your samples with NEOF, and have been notified that your data
+  has been received, then you should be able to find your data on the HPC server.
+
+  Data is generally stored in the shared space `/shared/molecol2/NBAF/MiSeq/`.
+
+  View the data directories contained within it and identify the one that belongs to you.
+  ```
+  ls /shared/molecol2/NBAF/MiSeq/
+  ```
+
+  If, for example, your data directory was called `NBAF_project_010122`, then you would
+  copy it onto your raw_data directory with the following:
+  ```
+  cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/<user>/my_project/raw_data/
+  ```
+
+  Alternatively, to copy data from your personal computer onto the HPC you need to use a file transfer
+  application such as 'scp' (advanced), MobaXterm, or [FileZilla](https://filezilla-project.org/).
+  Ensure to copy the data into your `/fastdata/my_project/raw_data folder`.
+
+  Run 'ls' on your `raw_data` folder and you should see something like the following
+  </details></blockquote>
+
+  <details><summary>Copy the dada2 R scripts</summary><blockquote>
+
+  Copy the required R scripts for the dada2 workflow into your `scripts`
+
+  ```
+  cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
+  ```
+  </details></blockquote>
