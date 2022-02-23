@@ -184,13 +184,21 @@
   </details></blockquote>
 
 <summary>3) Load data into R and perform preliminary filtering and quality trimming.</summary>
-  <details><summary>Section 01</summary><blockquote>
-  Ensure you are in the `my_project` directory and that you have the `raw_data` directory containing your sequence files
+  <details><summary>Check files and activate R environment</summary><blockquote>
+  Ensure you are in the `NBAF_project_010122` directory and that you have the `raw_data` directory containing your sequence files
   and the `scripts` directory containing the R scripts.
 
   ```
   pwd
   # /fastdata/<user>/my_project
+
+  ls raw_data/
+  # raw_input_file_S01_001_R1.fastq.gz
+  # raw_input_file S01_001_R2.fastq.gz
+
+  ls scripts/
+  # Graeme update what these should look like later
+
   ```
   module load R
   /usr/local/packages/live/eb/R/4.0.0-foss-2020a/bin/R
