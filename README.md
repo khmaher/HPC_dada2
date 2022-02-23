@@ -28,9 +28,9 @@
   # Should produce this output
   ```
 
-  Filepaths are highlighted within normal text like this:
+  Filepaths within normal text are within single quote marks, like this:
 
-  `/home/user/a_file_path`
+  '/home/user/a_file_path'
 
   Contact: Graeme Fox //  g.fox@sheffield.ac.uk // graeme.fox87@gmail.com // [@graefox](https://twitter.com/graefox)
   </details>
@@ -94,10 +94,10 @@
 
   <details><summary>2.3) Create a working directory and load your data</summary><blockquote>
 
-  You should work in the directory `/fastdata` on BESSEMER as this allows shared access to your files
+  You should work in the directory '/fastdata' on BESSEMER as this allows shared access to your files
   and commands, useful for troubleshooting.
 
-  Check if you already have a directory in `/fastdata`.
+  Check if you already have a directory in '/fastdata'.
 
   ```
   ls /usr/<user>
@@ -107,7 +107,7 @@
   ```
   ls: cannot access /fastdata/<user>: No such file or directory
   ```
-  Then you need to create a new folder in `/fastdata` using the command exactly as it appears below:
+  Then you need to create a new folder in '/fastdata' using the command exactly as it appears below:
 
   ```
   mkdir -m 0700 /fastdata/$USER
@@ -124,7 +124,7 @@
 
   <details><summary>2.4) Data file naming convention</summary><blockquote>
 
-  The workflow assumes that the `/fastdata/<user>my_project/raw_data` directory contains sequence data that is:
+  The workflow assumes that the '/fastdata/<user>my_project/raw_data' directory contains sequence data that is:
 
   * Paired (two files per biological sample)
 
@@ -154,14 +154,14 @@
   If you have sequenced your samples with NEOF, and have been notified that your data
   has been received, then you should be able to find your data on the HPC server.
 
-  Data is generally stored in the shared space `/shared/molecol2/NBAF/MiSeq/`.
+  Data is generally stored in the shared space '/shared/molecol2/NBAF/MiSeq/'.
 
   View the data directories contained within it and identify the one that belongs to you.
   ```
   ls /shared/molecol2/NBAF/MiSeq/
   ```
 
-  If, for example, your data directory was called `NBAF_project_010122`, then you would
+  If, for example, your data directory was called 'NBAF_project_010122', then you would
   copy it onto your raw_data directory with the following:
   ```
   cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/<user>/my_project/raw_data/
@@ -169,14 +169,14 @@
 
   Alternatively, to copy data from your personal computer onto the HPC you need to use a file transfer
   application such as 'scp' (advanced), MobaXterm, or [FileZilla](https://filezilla-project.org/).
-  Ensure to copy the data into your `/fastdata/<user>my_project/raw_data folder`.
+  Ensure to copy the data into your '/fastdata/<user>my_project/raw_data folder'.
 
-  Run 'ls' on your `raw_data` folder and you should see something like the following
+  Run 'ls' on your 'raw_data' folder and you should see something like the following
   </details></blockquote>
 
   <details><summary>2.6) Copy the dada2 R scripts</summary><blockquote>
 
-  Copy the required R scripts for the dada2 workflow into your `scripts`
+  Copy the required R scripts for the dada2 workflow into your 'scripts' directory.
 
   ```
   cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
@@ -185,8 +185,7 @@
 
 <summary>3) Load data into R and perform preliminary filtering and quality trimming.</summary>
   <details><summary>Check files and activate R environment</summary><blockquote>
-  Ensure you are in the `NBAF_project_010122` directory and that you have the `raw_data` directory containing your sequence files
-  and the `scripts` directory containing the R scripts.
+  Ensure you are in the 'NBAF_project_010122' directory and that you have the 'raw_data' directory containing your sequence files and the 'scripts' directory containing the R scripts.
 
   ```
   pwd
@@ -200,6 +199,10 @@
   # Graeme update what these should look like later
 
   ```
-  module load R
-  /usr/local/packages/live/eb/R/4.0.0-foss-2020a/bin/R
+
+  You should also be able to load the R environment without seeing any error messages:
+  ```
+  module load R/4.0.0-foss-2020a
+  ```
+
   </details></blockquote>
