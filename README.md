@@ -185,11 +185,13 @@
 <summary>3) Load data into R and perform preliminary filtering and quality trimming.</summary>
   <details><summary>Check files and activate R environment</summary><blockquote>
   Ensure that:
+
   * you are in the 'my_project' directory (confirmed with pwd (print working directory below)).
 
   * you have the 'raw_data', 'scripts', and 'working_data' directories in place (confirmed with ls)
 
   * the 'raw_data' directory contains your sequence files
+  
   * the 'scripts' directory containing the R scripts.
 
   ```
