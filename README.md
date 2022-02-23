@@ -66,7 +66,6 @@
   [<user>@bessemer-node001 ~]$
   ```
   ...where \<user\> is your The University of Sheffield (TUoS) IT username.
-  Wherever \<user\> appears in this document, substitute it with your University of Sheffield (TUoS) IT username.
 
   </details></blockquote>
 
@@ -97,10 +96,10 @@
   You should work in the directory '/fastdata' on BESSEMER as this allows shared access to your files
   and commands, useful for troubleshooting.
 
-  Check if you already have a directory in '/fastdata'.
+  Check if you already have a directory in '/fastdata' by running the command exactly as it appears below.
 
   ```
-  ls /usr/<user>
+  ls /usr/$USER
   ```
 
   If you receive the message
@@ -164,7 +163,7 @@
   If, for example, your data directory was called 'NBAF_project_010122', then you would
   copy it onto your raw_data directory with the following:
   ```
-  cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/<user>/my_project/raw_data/
+  cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/$USER/my_project/raw_data/
   ```
 
   Alternatively, to copy data from your personal computer onto the HPC you need to use a file transfer
@@ -179,17 +178,26 @@
   Copy the required R scripts for the dada2 workflow into your 'scripts' directory.
 
   ```
-  cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/<user>/scripts
+  cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/$USER/scripts
   ```
   </details></blockquote>
 
 <summary>3) Load data into R and perform preliminary filtering and quality trimming.</summary>
   <details><summary>Check files and activate R environment</summary><blockquote>
-  Ensure you are in the 'NBAF_project_010122' directory and that you have the 'raw_data' directory containing your sequence files and the 'scripts' directory containing the R scripts.
+  Ensure that:
+  * you are in the 'my_project' directory (confirmed with pwd (print working directory below)).
+
+  * you have the 'raw_data', 'scripts', and 'working_data' directories in place (confirmed with ls)
+
+  * the 'raw_data' directory contains your sequence files
+  * the 'scripts' directory containing the R scripts.
 
   ```
   pwd
-  # /fastdata/<user>/my_project
+  # /fastdata/$USER/my_project
+
+  ls
+  # raw_data  scripts   working_data
 
   ls raw_data/
   # raw_input_file_S01_001_R1.fastq.gz
