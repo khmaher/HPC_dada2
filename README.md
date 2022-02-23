@@ -21,6 +21,12 @@
   ```
   I am code - you must run me
   ```
+  Sometimes the desired output from a command is included in the code block as a comment.
+  For example:
+  ```
+  Running this command
+  # Should produce this output
+  ```
 
   Filepaths are highlighted within normal text like this:
 
