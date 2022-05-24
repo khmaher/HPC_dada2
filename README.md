@@ -326,7 +326,7 @@
   module load R/4.0.0-foss-2020a
   ```
 
-  If any of this is missing, go back to section 2.3 above and double check everything.
+  If any of this is missing, go back to section 3 above and double check everything.
   <br>
   <br>
   <font size="4"><b>4.2 Remove reads with Ns</b></font>
