@@ -9,7 +9,7 @@
 ## Dada2 Workflow using UoS BESSEMER.
 <br>
 <font size="4">
-<details><summary><font size="5"><b>1) About, credits, and other information</b></font></summary>
+<details><summary><font size="6"><b>1) About, credits, and other information</b></font></summary>
   <br>
   <br>
   This HPC tutorial is based largely upon the dada2 (v.1.8) tutorial published by
@@ -42,7 +42,7 @@
   Contact: Graeme Fox //  g.fox@sheffield.ac.uk
   </details>
 <br>
-<details><summary><font size="5"><b>2) Getting started on the HPC.</b></font></summary>
+<details><summary><font size="6"><b>2) Getting started on the HPC.</b></font></summary>
   <br>
   <br>
   <font size="4"><b>2.1) Access the HPC</b></font>
@@ -156,7 +156,7 @@
   </details>
   <br>
 
-  <details><summary><font size="5"><b>3) Load data and access scripts</b></font></summary>
+  <details><summary><font size="6"><b>3) Load data and access scripts</b></font></summary>
   <br>
   <br>
   <font size="4"><b>3.1) Create a working directory and load your data</b></font>
@@ -286,7 +286,7 @@
   <br>
   </details>
 <br>
-<details><summary><font size="5"><b>4) Check required files and perform preliminary filtering.</font></b></summary>
+<details><summary><font size="6"><b>4) Check required files and perform preliminary filtering.</font></b></summary>
   <br>
   <br>
   <font size="4"><b>4.1) Check files and activate R environment</b></font>
@@ -354,7 +354,7 @@
   ```
   </details>
   <br>
-  <details><summary><font size="5"><b>5) Run Cutadapt to remove primer sequences.</font></b></summary>
+  <details><summary><font size="6"><b>5) Run Cutadapt to remove primer sequences.</font></b></summary>
   <br>
   The next stage is to run Cutadapt on the data. <a href="https://cutadapt.readthedocs.io/en/stable/index.html">Cutadapt</a>
   is a tool for finding and removing primer sequences from next-generation sequencing data. First, a scan is performed to check for primers in the data, then Cutadapt is performed, and finally a further scan occurs to check that no primers remain.
@@ -399,7 +399,7 @@
   </details>
   <br>
 
-  <details><summary><font size="5"><b>6) Generate quality plots</b></font></summary>
+  <details><summary><font size="6"><b>6) Generate quality plots</b></font></summary>
 
   Having trimmed the adapters from the reads, we can then generate quality plots.
   This allows us to see how
@@ -420,7 +420,7 @@
   </details>
   <br>
 
-  <details><summary><font size="5"><b>7) Run filterAndTrim</b></font></summary>
+  <details><summary><font size="6"><b>7) Run filterAndTrim</b></font></summary>
   <br>
   From the quality plots generated earlier we need to determine some trimming parameters
   to apply to the raw data. <br>
@@ -488,7 +488,7 @@
   <br>
   </details>
   <br>
-  <details><summary><font size="5"><b>8) Generate error model(s) and inspect plots</b></font></summary>
+  <details><summary><font size="6"><b>8) Generate error model(s) and inspect plots</b></font></summary>
   <br>
 
   For the dada2 error correction to run, dada2 must first model the error rates of the datasets using both the forward
@@ -510,7 +510,7 @@
 
   </details>
   <br>
-  <details><summary><font size="5"><b>9) Dereplicate reads, perform dada denoising, merge reads & remove chimeras</b></font></summary>
+  <details><summary><font size="6"><b>9) Dereplicate reads, perform dada denoising, merge reads & remove chimeras</b></font></summary>
   <br>
   This step incorporates several of the dada2 processses:<br>
 
@@ -530,7 +530,7 @@
   <br>
   </details>
   <br>
-  <details><summary><font size="5"><b>10) Track reads through pipeline</b></font></summary>
+  <details><summary><font size="6"><b>10) Track reads through pipeline</b></font></summary>
   <br>
   Having applied quality trimming, dada2 denoising and chimera removal (amongst other processes), it is a good idea to track how many
   reads have been removed at each stage as this may allow the identification of any issues in the data.<br><br>
@@ -545,7 +545,7 @@
 
   </details>
   <br>
-  <details><summary><font size="5"><b>11) Assign taxonomy to ASVs</b></font></summary><br><br>
+  <details><summary><font size="6"><b>11) Assign taxonomy to ASVs</b></font></summary><br><br>
   Now we have a set of ASVs, the final stage of the dada2 workflow is to assign a taxonomy to each ASV.
   Here, each ASV is compared to the reference database and assigned a taxonomy based on the closest sequence match.<br><br>
 
@@ -563,7 +563,7 @@
   </details>
   <br>
 
-  <details><summary><font size="5"><b>(Optional extra if you have done this before) Run full pipeline</b></font></summary>
+  <details><summary><font size="6"><b>(Optional extra if you have done this before) Run full pipeline</b></font></summary>
   <br>
   You can run the full pipeline with a single command using the '00_run_full_pipeline.sh' script. The folder structure needs
   to be set up as if you were running the pipeline one step at a time.
