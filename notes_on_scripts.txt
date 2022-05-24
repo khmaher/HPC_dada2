@@ -1,0 +1,25 @@
+notes on HPC DADA2 workflow
+
+what is working etc.
+
+working in the my_project2 directory which has a subset of data to get it running quicky.
+
+01_run_raw_quality_plots -  WORKING on the version in the bacterial data
+(changed the filenames to accept the output from the discover file extensions)
+pass -D raw data directory
+-R optional R1 extension
+-P optional R2 extension
+-E email to send plots
+
+
+
+02_run_filterAndTrim
+D) directory=${OPTARG};;
+R) R1_extension=${OPTARG};;
+P) R2_extension=${OPTARG};;
+E) email=${OPTARG};;
+T) trunclen1=${OPTARG};;
+S) trunclen2=${OPTARG};;
+F) maxEE1=${OPTARG};;
+G) maxEE2=${OPTARG};;
+Q) truncQ=${OPTARG};;
