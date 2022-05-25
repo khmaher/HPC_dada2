@@ -580,12 +580,12 @@
   - the R2 specific section of file names (generally automatically detected) (-P)<br>
   - the minimum length of a read allowed to pass Cutadapt (-M)<br>
   - the maximum number of occurrences of an adapter to be removed by Cutadapt (-N)<br>
-  - truncation length for the R1 forward read (-T flag)<br>
-  - truncation length for the R2 reverse read (-S flag)<br>
-  - maxEE for the R1 forward read (-G flag)<br>
-  - maxEE for the R2 reverse read (-H flag)<br>
-  - truncQ (-Q flag)<br>
-  - minimum length (-L flag)<br><br>
+  - truncation length for the R1 forward read used by filterAndTrim (-T flag)<br>
+  - truncation length for the R2 reverse read used by filterAndTrim (-S flag)<br>
+  - maxEE for the R1 forward read used by filterAndTrim (-G flag)<br>
+  - maxEE for the R2 reverse read used by filterAndTrim (-H flag)<br>
+  - truncQ used by filterAndTrim (-Q flag)<br>
+  - minimum length used by filterAndTrim (-L flag)<br><br>
 
   Run the '00_run_full_pipeline.sh' script:
 
