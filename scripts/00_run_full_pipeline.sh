@@ -7,7 +7,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=8GB
-#SBATCH --time=24:00:00
+#SBATCH --time=48:00:00
 
 ######################################################
 
@@ -41,7 +41,7 @@ do
                 P) R2_extension=${OPTARG};;
                 E) email=${OPTARG};;
 		F) forward=${OPTARG};;
-		R) reverse=${OTPARG};;
+		R) reverse=${OPTARG};;
                 M) minimum=${OPTARG};;
                 N) copies=${OPTARG};;
 		T) trunclen1=${OPTARG};;
@@ -56,7 +56,7 @@ done
 
 ######################################################
 ## check mandatory arguments
-if [ ! "$directory"] ; then
+if [ ! "$directory" ]|| [ ! "$email" ] || [ ! "$forward" ] || [ ! "$reverse" ] || [ ! "$database" ]; then
         printf "\n\nERROR: Argument -D (directory of raw data files) must be provided"
         printf "\n\nERROR: Argument -E (contact email address) must be provided"
         printf "\n\nERROR: Argument -F (forward primer sequence) must be provided"
@@ -82,7 +82,7 @@ Rscript $PWD/scripts/01_remove_Ns.R $ARGS
 # Run Cutadapt
 ## build up arg string to pass to R script
 ARGS=""
-if [ "$dir" ]; then ARGS="$ARGS -D $dir"; fi
+if [ "$directory" ]; then ARGS="$ARGS -D $directory"; fi
 if [ "$forward" ]; then ARGS="$ARGS -F $forward"; fi
 if [ "$reverse" ]; then ARGS="$ARGS -R $reverse"; fi
 if [ "$minimum" ]; then ARGS="$ARGS -M $minimum"; fi
@@ -94,6 +94,7 @@ source ~/.bash_profile
 conda activate cutadapt
 module load R/4.0.0-foss-2020a
 Rscript $PWD/scripts/02_cutadapt.R $ARGS
+echo $ARGS
 
 ######################################################
 # Generate quality plots

@@ -33,25 +33,8 @@ fnRs <- sort(list.files(input_files, pattern = file_exts$R2, full.names = TRUE))
 fnFs.filtN <- file.path(path, "working_data/filtN", basename(fnFs)) # Put N-filterd files in filtN/ subdirectory
 fnRs.filtN <- file.path(path, "working_data/filtN", basename(fnRs))
 
-## decode filterAndTrim options
-all_args <- ""
-if ((!is.null(opt$trimlength1)) & (!is.null(opt$trimlength2))){
-	trimlength_args <- paste("truncLen=c(",opt$trimlength1,",",opt$trimlength2,")", sep="")
-	all_args <- paste(all_args, trimlength_args, sep=",")
-}	
-
-if ((!is.null(opt$maxEE_read1)) & (!is.null(opt$maxEE_read2))){
-        maxEE_args <- paste("maxEE=c(",opt$maxEE_read1,",",opt$maxEE_read2,")", sep="")
-	all_args <- paste(all_args, maxEE_args, sep=",")
-}
-
-if ((!is.null(opt$truncQ))){
-        truncQ_args <- paste("truncQ=",opt$truncQ, sep="")
-        all_args <- paste(all_args, truncQ_args, sep=",")
-}
-
 # run filterAndTrim
-eval(parse(text = paste("filterAndTrim(fnFs, fnFs.filtN, fnRs, fnRs.filtN, maxN = 0, ", all_args, ")")))
+eval(parse(text = paste("filterAndTrim(fnFs, fnFs.filtN, fnRs, fnRs.filtN, maxN = 0, ", ")")))
 
 ## write objects to pass to next script
 saveRDS(fnFs.filtN, file = paste(path,"/R_objects/01_fnFs.filtN.rds",sep=""))
