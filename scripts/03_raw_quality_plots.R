@@ -1,10 +1,13 @@
+
 ## load functions and check packages installed
 source("scripts/functions.R")
 
 # parse command line options
 option_list = list(
   make_option(c("-E", "--email"), type="character", default=FALSE,
-              help="Provide an email address to receive an email notification when the job has finished.", metavar="character")
+              help="Provide an email address to receive an email notification when the job has finished.", metavar="character"),
+  make_option(c("-C", "--marker"), type="character", default=NULL,
+              help="OPTIONAL - give the marker name adn the plot will include this info. Useful if processing multiple markers", metavar="character")
 )
 
 ## Parse arguments
@@ -33,5 +36,12 @@ plotQualityProfile(fnFs.cut[1:2])
 plotQualityProfile(fnRs.cut[1:2])
 dev.off()
 
-email_plot_command <- paste("echo \"Pre_QC_quality_plots\" | mail -s \"Pre_QC_quality_plots\" -a working_data/03_pre_trim_quality_plots.pdf", opt$email, sep=" ")
+if (!is.null(opt$marker)){
+        email_plot_command <- paste("echo \"Pre_QC_quality_plots\" | mail -s \"", opt$marker, "Pre_QC_quality_plots\" -a working_data/03_pre_trim_quality_plots.pdf", opt$email, sep=" ")
+}
+
+if (is.null(opt$marker)){
+        email_plot_command <- paste("echo \"Pre_QC_quality_plots\" | mail -s \"Pre_QC_quality_plots\" -a working_data/03_pre_trim_quality_plots.pdf", opt$email, sep=" ")
+}
+
 system(email_plot_command)
