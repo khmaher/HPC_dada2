@@ -17,10 +17,13 @@ Where:
     -R  reverse primer sequence
     -M  minimum size of read to be retained
     -N  maximum number of occurrences of an adapter to be trimmed
-    -E  email address\n\n\n"
+    -E  email address
+    -C  marker name (to be used for Fluidigm type runs below)
+    -A  File of marker details (used for Fluidigm type runs)\n\n\n"
+
 
 ## parse arguments
-while getopts D:F:R:M:N:E: flag
+while getopts D:F:R:M:N:E:C:A: flag
 do
   	case "${flag}" in
 		D) directory=${OPTARG};;
@@ -29,15 +32,25 @@ do
 		M) minimum=${OPTARG};;
 		N) copies=${OPTARG};;
 		E) email=${OPTARG};;
+		C) marker=${OPTARG};;
+		A) marker_file=${OPTARG};;
         esac
 done
 
-## check mandatory arguments
-if [ ! "$directory" ] || [ ! "$forward" ] || [ ! "$reverse" ]; then
-        printf "\n\nERROR: Argument -D (directory of raw data files) must be provided"
-	printf "\n\nERROR: Argument -F (forward primer sequence) must be provided"
-	printf "\n\nERROR: Argument -R (reverse primer sequence) must be provided"
-        printf "\n\n$usage" >&2; exit 1
+## providing the DB of marker details can over-ride the need for some of these other required arguments
+
+if [ ! "$directory" ] || [ ! "$marker" ] || [ ! "$marker_file" ]; then
+	## check mandatory arguments
+	if [ ! "$directory" ] || [ ! "$forward" ] || [ ! "$reverse" ]; then
+	        printf "\n\nERROR: Argument -D (directory of raw data files) must be provided"
+		printf "\n\nERROR: Argument -F (forward primer sequence) must be provided"
+		printf "\n\nERROR: Argument -R (reverse primer sequence) must be provided"
+	        printf "\n\n$usage" >&2; exit 1
+	fi
+fi
+if [ "$marker" ] & [ "$marker_file" ] ; then
+	forward=$(awk -F, '$1 == "L1085_H1259" {print $3}' $marker_file) ; echo $F_primer
+	reverse=$(awk -F, '$1 == "L1085_H1259" {print $4}' $marker_file) ; echo $R_primer
 fi
 
 ## build up arg string to pass to R script
@@ -48,6 +61,8 @@ if [ "$reverse" ]; then ARGS="$ARGS -R $reverse"; fi
 if [ "$minimum" ]; then ARGS="$ARGS -M $minimum"; fi
 if [ "$copies" ]; then ARGS="$ARGS -N $copies"; fi
 if [ "$email" ]; then ARGS="$ARGS -E $email"; fi	
+
+echo $ARGS
 
 ## load R and call Rscript
 source ~/.bash_profile
