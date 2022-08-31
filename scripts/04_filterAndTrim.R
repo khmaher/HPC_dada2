@@ -3,19 +3,19 @@ source("scripts/functions.R")
 
 # parse command line options
 option_list = list(
-  make_option(c("-E", "--email"), type="character", default=FALSE,
+  make_option(c("-E", "--email"), type="character", default=NULL,
               help="Provide an email address to receive an email notification when the job has finished.", metavar="character"),
-  make_option(c("-T", "--trimlength1"), type="integer", default=FALSE,
+  make_option(c("-T", "--trimlength1"), type="integer", default=NULL,
               help="truncLen value for read1", metavar="character"),
-  make_option(c("-S", "--trimlength2"), type="integer", default=FALSE,
+  make_option(c("-S", "--trimlength2"), type="integer", default=NULL,
               help="truncLen value for read2", metavar="character"),
-  make_option(c("-F", "--maxEE_read1"), type="integer", default=FALSE,
+  make_option(c("-F", "--maxEE_read1"), type="integer", default=NULL,
               help="maxEE value for read2", metavar="character"),
-  make_option(c("-G", "--maxEE_read2"), type="integer", default=FALSE,
+  make_option(c("-G", "--maxEE_read2"), type="integer", default=NULL,
               help="maxEE value for read2", metavar="character"),
-  make_option(c("-Q", "--truncQ"), type="integer", default=FALSE,
+  make_option(c("-Q", "--truncQ"), type="integer", default=NULL,
               help="truncQ value", metavar="character"),
-  make_option(c("-L", "--minlength"), type="integer", default=FALSE,
+  make_option(c("-L", "--minlength"), type="integer", default=NULL,
               help="Impose a minimum length cutoff", metavar="character"),
   make_option(c("-U", "--subset"), type="logical", default=FALSE,
               help="If TRUE, run filterAndTrim on the first two sample files and email plots", metavar="character")
