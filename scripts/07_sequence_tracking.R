@@ -4,7 +4,9 @@ source("scripts/functions.R")
 # parse command line options
 option_list = list(
   make_option(c("-E", "--email"), type="character", default=FALSE,
-              help="Provide an email address to receive an email notification when the job has finished.", metavar="character")
+              help="Provide an email address to receive an email notification when the job has finished.", metavar="character"),
+  make_option(c("-C", "--marker"), type="character", default=NULL,
+              help="OPTIONAL - give the marker name adn the plot will include this info. Useful if processing multiple markers", metavar="character")
 )
 
 ## Parse arguments
@@ -41,7 +43,14 @@ colnames(track) <- c(
 sample.names <- unname(sapply(filtFs, get.sample.name))
 rownames(track) <- sample.names
 
-write.table(track, file = paste(path, "/working_data/07_track_reads_table.csv", sep=""))
+if (!is.null(opt$marker)){
+        write.table(track, file = paste(path, "/working_data/07_", opt$marker, "track_reads_table.csv", sep=""))
+        email_plot_command <- paste("echo \"", opt$marker, "Track reads table\" | mail -s \"", opt$marker, "Track reads table\" -a working_data/07_", opt$marker, "track_reads_table.csv ", opt$email, sep="")
+        system(email_plot_command)
+}
 
-email_plot_command <- paste("echo \"Track reads table\" | mail -s \"Track reads table\" -a working_data/07_track_reads_table.csv", opt$email, sep=" ")
-system(email_plot_command)
+if (is.null(opt$marker)){
+	write.table(track, file = paste(path, "/working_data/07_track_reads_table.csv", sep=""))
+	email_plot_command <- paste("echo \"Track reads table\" | mail -s \"Track reads table\" -a working_data/07_track_reads_table.csv ", opt$email, sep="")
+	system(email_plot_command)
+}

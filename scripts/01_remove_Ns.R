@@ -10,7 +10,9 @@ option_list = list(
   make_option(c("-P", "--R2_ext"), type="character", default=NULL,
               help="Specify the	R2 extension if	the script couldn't automatically detect it", metavar="character"),
   make_option(c("-E", "--email"), type="character", default=FALSE,
-              help="Provide an email address to receive an email notification when the job has finished.", metavar="character")
+              help="Provide an email address to receive an email notification when the job has finished.", metavar="character"),
+  make_option(c("-C", "--marker"), type="character", default=NULL,
+              help="OPTIONAL - give the marker name adn the plot will include this info. Useful if processing multiple markers", metavar="character")
 )
 
 ## Parse arguments
@@ -40,5 +42,13 @@ eval(parse(text = paste("filterAndTrim(fnFs, fnFs.filtN, fnRs, fnRs.filtN, maxN 
 saveRDS(fnFs.filtN, file = paste(path,"/R_objects/01_fnFs.filtN.rds",sep=""))
 saveRDS(fnRs.filtN, file = paste(path,"/R_objects/01_fnRs.filtN.rds",sep=""))
 
-email_command <- paste("echo \"remove Ns is complete.\" | mail -s \"remove Ns is complete.\"", opt$email, sep=" ")
-system(email_command)
+if (!is.null(opt$marker)){
+	email_command <- paste("echo \"", opt$marker, "remove Ns is complete.\" | mail -s \"", opt$marker, "remove Ns is complete.\"", opt$email, sep=" ")
+	system(email_command)
+}
+
+if (is.null(opt$marker)){
+	email_command <- paste("echo \"remove Ns is complete.\" | mail -s \"remove Ns is complete.\"", opt$email, sep=" ")
+        system(email_command)
+}
+

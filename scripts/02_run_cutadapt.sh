@@ -49,8 +49,10 @@ if [ ! "$directory" ] || [ ! "$marker" ] || [ ! "$marker_file" ]; then
 	fi
 fi
 if [ "$marker" ] & [ "$marker_file" ] ; then
-	forward=$(awk -F, '$1 == "L1085_H1259" {print $3}' $marker_file) ; echo $F_primer
-	reverse=$(awk -F, '$1 == "L1085_H1259" {print $4}' $marker_file) ; echo $R_primer
+	forward=$(awk -v marker="$marker" -F, '$1 == marker {print $3}' $marker_file) ; echo $F_primer	
+	reverse=$(awk -v marker="$marker" -F, '$1 == marker {print $4}' $marker_file) ; echo $R_primer
+	minimum=$(awk -v marker="$marker" -F, '$1 == marker {print $5}' $marker_file) ; echo $cutadapt_min_size
+	copies=$(awk -v marker="$marker" -F, '$1 == marker {print $6}' $marker_file) ; echo $cutadapt_no_adapters
 fi
 
 ## build up arg string to pass to R script
@@ -61,8 +63,6 @@ if [ "$reverse" ]; then ARGS="$ARGS -R $reverse"; fi
 if [ "$minimum" ]; then ARGS="$ARGS -M $minimum"; fi
 if [ "$copies" ]; then ARGS="$ARGS -N $copies"; fi
 if [ "$email" ]; then ARGS="$ARGS -E $email"; fi	
-
-echo $ARGS
 
 ## load R and call Rscript
 source ~/.bash_profile

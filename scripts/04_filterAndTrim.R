@@ -9,17 +9,18 @@ option_list = list(
               help="truncLen value for read1", metavar="character"),
   make_option(c("-S", "--trimlength2"), type="integer", default=NULL,
               help="truncLen value for read2", metavar="character"),
-  make_option(c("-F", "--maxEE_read1"), type="integer", default=NULL,
+  make_option(c("-G", "--maxEE_read1"), type="integer", default=NULL,
               help="maxEE value for read2", metavar="character"),
-  make_option(c("-G", "--maxEE_read2"), type="integer", default=NULL,
+  make_option(c("-H", "--maxEE_read2"), type="integer", default=NULL,
               help="maxEE value for read2", metavar="character"),
   make_option(c("-Q", "--truncQ"), type="integer", default=NULL,
               help="truncQ value", metavar="character"),
   make_option(c("-L", "--minlength"), type="integer", default=NULL,
               help="Impose a minimum length cutoff", metavar="character"),
   make_option(c("-U", "--subset"), type="logical", default=FALSE,
-              help="If TRUE, run filterAndTrim on the first two sample files and email plots", metavar="character")
-
+              help="If TRUE, run filterAndTrim on the first two sample files and email plots", metavar="character"),
+  make_option(c("-C", "--marker"), type="character", default=NULL,
+              help="If specified will include marker name in output emails making it easier to see which plots apply to which markers", metavar="character")
 )
 
 ## Parse arguments
@@ -34,8 +35,8 @@ fnFs.cut <- readRDS(file = paste(path,"/R_objects/02_fnFs.cut.rds",sep=""))
 fnRs.cut <- readRDS(file = paste(path,"/R_objects/02_fnRs.cut.rds",sep=""))
 
 ## set up filepaths for output files
-fnFs.filtN <- file.path(path, "working_data/filtN", basename(fnFs.cut))
-fnRs.filtN <- file.path(path, "working_data/filtN", basename(fnRs.cut))
+fnFs.filtN <- file.path(path, "working_data/filterAndTrim", basename(fnFs.cut))
+fnRs.filtN <- file.path(path, "working_data/filterAndTrim", basename(fnRs.cut))
 
 ## decode filterAndTrim options
 all_args <- ""
@@ -66,23 +67,36 @@ if (opt$subset == "FALSE"){
         out <- eval(parse(text = paste("filterAndTrim(fnFs.cut, fnFs.filtN, fnRs.cut, fnRs.filtN, maxN = 0, ", all_args, ")")))
 }
 
-
 ## write objects to pass to next script
 saveRDS(fnFs.filtN, file = paste(path, "/R_objects/04_fnFs.filtN.rds" ,sep=""))
 saveRDS(fnRs.filtN, file = paste(path, "/R_objects/04_fnRs.filtN.rds" ,sep=""))
 saveRDS(out, file = paste(path, "/R_objects/04_out.rds", sep=""))
 
 ## generate quality plots on the quality-trimmed data
+# write plots for inspection
+if (!is.null(opt$marker)){
+        pdf(file = paste(path,"/working_data/04_", opt$marker, "post_trim_quality_plots.pdf", sep=""),   # The directory you want to save the file into
+        width = 10, # The width of the plot in inches
+        height = 10)
+}
 
-## write plot to file for inspection
-pdf(file = paste(path,"/working_data/04_post_trim_quality_plots.pdf", sep=""),   # The directory $
-    width = 10, # The width of the plot in inches
-    height = 10)
+if (is.null(opt$marker)){
+        pdf(file = paste(path,"/working_data/04_post_trim_quality_plots.pdf", sep=""),   # The directory you want to save the file into
+        width = 10, # The width of the plot in inches
+        height = 10)
+}
 
 ## inspect read quality plots
 plotQualityProfile(fnFs.filtN[1:2])
 plotQualityProfile(fnRs.filtN[1:2])
 dev.off()
 
-email_plot_command <- paste("echo \"filterAndTrim is complete.\" | mail -s \"filterAndTrim is complete.\" -a working_data/04_post_trim_quality_plots.pdf", opt$email, sep=" ")
+if (!is.null(opt$marker)){
+        email_plot_command <- paste("echo \"filterAndTrim is complete.\" | mail -s \"", opt$marker, "Post_QC_quality_plots\" -a ", paste("working_data/04_", opt$marker, "post_trim_quality_plots.pdf", sep=""), opt$email, sep=" ")
+}
+
+if (is.null(opt$marker)){
+        email_plot_command <- paste("echo \"filterAndTrim is complete.\" | mail -s \"Post_QC_quality_plots\" -a working_data/04_post_trim_quality_plots.pdf", opt$email, sep=" ")
+}
+
 system(email_plot_command)

@@ -14,7 +14,9 @@ option_list = list(
   make_option(c("-N", "--copies"), type="character", default=NULL,
               help="Number of copies of a primer to be removed as sometimes dulication can occur. Recommended minimum is 2", metavar="character"),
   make_option(c("-M", "--minimum"), type="character", default=NULL,
-              help="Minimum read length cutoff. Recommend >0", metavar="character")
+              help="Minimum read length cutoff. Recommend >0", metavar="character"),
+  make_option(c("-C", "--marker"), type="character", default=NULL,
+              help="Name of marker - useful for naming output files and emails", metavar="character")
 ); 
  
 opt_parser = OptionParser(option_list=option_list);
@@ -67,7 +69,13 @@ pre_trim_primer_counts <- rbind(FWD.ForwardReads = sapply(FWD.orients, primerHit
       REV.ForwardReads = sapply(REV.orients, primerHits, fn = fnFs.filtN[[1]]), 
       REV.ReverseReads = sapply(REV.orients, primerHits, fn = fnRs.filtN[[1]]))
 
-write.table(pre_trim_primer_counts, paste(path, "/working_data/02_pre_trim_primer_counts.tsv", sep=""), col.names=NA, sep="\t")
+if (!is.null(opt$marker)){
+	write.table(pre_trim_primer_counts, paste(path, "/working_data/02_", opt$marker, "pre_trim_primer_counts.tsv", sep=""), col.names=NA, sep="\t")
+}
+
+if (is.null(opt$marker)){
+	write.table(pre_trim_primer_counts, paste(path, "/working_data/02_pre_trim_primer_counts.tsv", sep=""), col.names=NA, sep="\t")
+}
 
 # create directory for cutadapt
 path.cut <- file.path(paste(path, "/working_data/cutadapt", sep=""))
@@ -111,8 +119,6 @@ if ((!is.null(opt$copies))){
 
 # run cutadapt
 for (i in seq_along(fnFs.filtN)) {
-  print(fnFs.filtN[i])
-  print(fnFs.cut[i])
   eval(parse(text = paste("system2(\"cutadapt\", args=c(R1.flags, R2.flags, \"-o\", fnFs.cut[i], \"-p\", fnRs.cut[i], fnFs.filtN[i], fnRs.filtN[i], \"-j 0\" ", as.character(all_args), "))", sep="")))}
 
 post_trim_primer_counts <- rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs.cut[[1]]), 
@@ -120,8 +126,14 @@ post_trim_primer_counts <- rbind(FWD.ForwardReads = sapply(FWD.orients, primerHi
       REV.ForwardReads = sapply(REV.orients, primerHits, fn = fnFs.cut[[1]]), 
       REV.ReverseReads = sapply(REV.orients, primerHits, fn = fnRs.cut[[1]]))
 
-write.table(post_trim_primer_counts, paste(path, "/working_data/02_post_trim_primer_counts.tsv", sep=""), col.names=NA)
+if (!is.null(opt$marker)){
+	write.table(post_trim_primer_counts, paste(path, "/working_data/02_", opt$marker, "post_trim_primer_counts.tsv", sep=""), col.names=NA)
+	email_command <- paste("echo \"", opt$marker, "Cutadapt is complete.\" | mail -s \"", opt$marker, "Cutadapt is complete.\"", opt$email, sep=" ")
+	system(email_command)
+}
 
-email_command <- paste("echo \"Cutadapt is complete.\" | mail -s \"Cutadapt is complete.\"", opt$email, sep=" ")
-system(email_command)
-
+if (is.null(opt$marker)){
+	write.table(post_trim_primer_counts, paste(path, "/working_data/02_post_trim_primer_counts.tsv", sep=""), col.names=NA)
+	email_command <- paste("echo \"Cutadapt is complete.\" | mail -s \"Cutadapt is complete.\"", opt$email, sep=" ")
+	system(email_command)
+}
