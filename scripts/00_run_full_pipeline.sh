@@ -86,6 +86,7 @@ if [ "$directory" ] || [ "$marker" ] || [ "$marker_file" ] || [ "$email" ]; then
 	maxEE2=$(awk -v marker="$marker" -F, '$1 == marker {print $10}' $marker_file) ; echo $FandT_R1_maxEE
 	truncQ=$(awk -v marker="$marker" -F, '$1 == marker {print $11}' $marker_file) ; echo $FandT_truncQ
 	minlength=$(awk -v marker="$marker" -F, '$1 == marker {print $12}' $marker_file) ; echo $FandT_minlen
+	database=$(awk -v marker="$marker" -F, '$1 == marker {print $13}' $marker_file) ; echo $reference_database
 fi
 
 ######################################################
@@ -193,4 +194,4 @@ if [ "$email" ]; then ARGS="$ARGS -E $email"; fi
 if [ "$marker" ]; then ARGS="$ARGS -C $marker"; fi
 
 ## load R and call Rscript
-#Rscript $PWD/scripts/08_assign_taxonomy.R $ARGS
+Rscript $PWD/scripts/08_assign_taxonomy.R $ARGS

@@ -1,0 +1,2 @@
+marker_ID,Genomic_region,F_primer,R_primer,cutadapt_min_size,cutadapt_max_no_adapters,FandT_R1_trunc,FandT_R2_trunc,FandT_R1_maxEE,FandT_R2_maxEE,FandT_truncQ,FandT_minlen
+L1085_H1259,12S,CCCAAACTGGGATTAGATACCC,GTTTGCTGAAGATGGCGGTA,50,2,,,2,2,2,50

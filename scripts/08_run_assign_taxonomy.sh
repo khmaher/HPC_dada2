@@ -15,18 +15,26 @@ Where:
     -E  email address\n\n\n"
 
 ## parse arguments
-while getopts B:E: flag
+while getopts B:E:C:A: flag
 do
 	case "${flag}" in
 		B) database=${OPTARG};;
 		E) email=${OPTARG};;
+		C) marker=${OPTARG};;
+		A) marker_file=${OPTARG};;
 	esac
 done
 
-## check mandatory arguments
-if [ ! "$database" ] ; then
-	printf "\n\nERROR: Argument -B (database) must be provided"
-	printf "\n\n$usage" >&2; exit 1
+if [ ! "$marker" ] || [ ! "$marker_file" ]; then
+	## check mandatory arguments
+	if [ ! "$database" ] ; then
+		printf "\n\nERROR: Argument -B (database) must be provided"
+		printf "\n\n$usage" >&2; exit 1
+	fi
+fi
+
+if [ "$marker" ] || [ "$marker_file" ]; then
+	database=$(awk -v marker="$marker" -F, '$1 == marker {print $13}' $marker_file) ; echo $reference_database
 fi
 
 ## build up arg string to pass to R script
