@@ -8,10 +8,6 @@
 #SBATCH --mem-per-cpu=8GB
 #SBATCH --time=24:00:00
 
-usage="$(basename "$0") [-E email] [-C marker name] You may supply an email for notifications.
-\n\nYou also may optionally supply the name of the marker which helps clarity when analysing multiple markers.
-\n\n\n"
-
 ## parse arguments
 while getopts E:C: flag
 do

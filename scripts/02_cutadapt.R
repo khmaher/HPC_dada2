@@ -36,7 +36,6 @@ REV <- opt$Rprimer
 # opposite primer region, meaning a single read can have both primers on it.
 # all this orientation stuff gives all the possible variants of primer and checks for them all
 
-
 allOrients <- function(primer) {
   # Create all orientations of the input sequence
   require(Biostrings)
@@ -45,7 +44,6 @@ allOrients <- function(primer) {
                RevComp = reverseComplement(dna))
   return(sapply(orients, toString))  # Convert back to character vector
 }
-
 FWD.orients <- allOrients(FWD)
 REV.orients <- allOrients(REV)
 
@@ -88,6 +86,10 @@ REV.RC <- dada2:::rc(REV)
 R1.flags <- paste("-g", FWD, "-g", REV.RC, "-g", FWD.RC, "-g", REV)
 # Trim REV and the reverse-complement of FWD off of R2 (reverse reads)
 R2.flags <- paste("-G", FWD, "-G", REV.RC, "-G", FWD.RC, "-G", REV)
+
+print("these are the flags")
+print(R1.flags)
+print(R2.flags)
 
 ## redefine the cut dirs based on what is going in
 fnFs.cut <- gsub("/filtN", "/cutadapt", fnFs.filtN)

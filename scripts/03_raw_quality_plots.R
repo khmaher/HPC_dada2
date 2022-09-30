@@ -22,8 +22,6 @@ fnRs.cut <- readRDS(file = paste(path,"/R_objects/02_fnRs.cut.rds",sep=""))
 
 # extract sample names and write to R object
 sample.names <- unname(sapply(fnFs.cut, get.sample.name))
-print("this is the thing it didn't write")
-print(sample.names)
 saveRDS(sample.names, file=paste(path, "/R_objects/03_sample_names.rds", sep=""))
 
 ## write plot to file for inspection

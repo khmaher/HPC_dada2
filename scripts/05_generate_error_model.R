@@ -22,9 +22,15 @@ filtFs <- readRDS(file = paste(path, "/R_objects/04_fnFs.filtN.rds" ,sep=""))
 filtRs <- readRDS(file = paste(path, "/R_objects/04_fnRs.filtN.rds" ,sep=""))
 out <- readRDS(file = paste(path, "/R_objects/04_out.rds", sep=""))
 
+## check that the files in filtFs and filtRs lists exist - I.e. made it through filterAndTrim
+# (sometimes files can have no reads pass and it upsets the next stage)
+exists <- file.exists(filtFs)
+
+# run error rates but only on those files that exist
+
 ## learn the error rates
-errF <- learnErrors(filtFs, multithread = TRUE)
-errR <- learnErrors(filtRs, multithread = TRUE)
+errF <- learnErrors(filtFs[exists], multithread = TRUE)
+errR <- learnErrors(filtRs[exists], multithread = TRUE)
 
 ## write out error rates for use later
 saveRDS(errF, file = paste(path,"/R_objects/05_errF.rds",sep=""))

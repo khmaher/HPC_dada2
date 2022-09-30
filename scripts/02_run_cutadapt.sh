@@ -45,6 +45,7 @@ if [ ! "$directory" ] || [ ! "$marker" ] || [ ! "$marker_file" ]; then
 	        printf "\n\nERROR: Argument -D (directory of raw data files) must be provided"
 		printf "\n\nERROR: Argument -F (forward primer sequence) must be provided"
 		printf "\n\nERROR: Argument -R (reverse primer sequence) must be provided"
+		printf "\nOR, you may supply a file of parameters using marker name (-C) and path to parameter file (-A)"
 	        printf "\n\n$usage" >&2; exit 1
 	fi
 fi
@@ -63,6 +64,7 @@ if [ "$reverse" ]; then ARGS="$ARGS -R $reverse"; fi
 if [ "$minimum" ]; then ARGS="$ARGS -M $minimum"; fi
 if [ "$copies" ]; then ARGS="$ARGS -N $copies"; fi
 if [ "$email" ]; then ARGS="$ARGS -E $email"; fi	
+if [ "$marker" ]; then ARGS="$ARGS -C $marker"; fi
 
 ## load R and call Rscript
 source ~/.bash_profile
