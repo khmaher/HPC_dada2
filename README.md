@@ -84,7 +84,12 @@
   <br>
   The Genomics Software Repository contains several pre-loaded pieces of software
   useful for a range of genomics-based analyses, including this one.
-
+  
+  Type:
+  ```
+  source ~/.bash_profile
+  ```
+  
   Did you receive the following message when you accessed the worker node?
   ```
   Your account is set up to use the Genomics Software Repository
@@ -227,6 +232,8 @@
   # sample2_S2_R1_001.fq.gz
   # sample2_S2_R2_001.fq.gz
   ```
+  
+  Make sure that you have removed any tar.gz files and any files labelled unclassified, e.g. `Unclassified_R1` `Unclassified_R2` 
   <br>
 
   <font size="4"><b>3.4) Data file naming convention</b></font>
