@@ -39,7 +39,7 @@
 
   '/home/user/a_file_path'
   <br><br>
-  Contact: Graeme Fox //  g.fox@sheffield.ac.uk
+  Contact: Katy Maher //  kathryn.maher@sheffield.ac.uk
   </details>
 <br>
 <details><summary><font size="6"><b>2) Getting started on the HPC.</b></font></summary>
