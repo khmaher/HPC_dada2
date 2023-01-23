@@ -233,7 +233,7 @@
   # sample2_S2_R2_001.fq.gz
   ```
   
-  Make sure that you have removed any tar.gz files and any files labelled unclassified, e.g. `Unclassified_R1` `Unclassified_R2` 
+  Make sure that you have removed any `tar.gz` files and any files labelled unclassified, e.g. `Unclassified_R1` `Unclassified_R2` 
   <br>
 
   <font size="4"><b>3.4) Data file naming convention</b></font>

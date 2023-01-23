@@ -40,3 +40,6 @@ if (is.null(opt$marker)){
 }
 
 system(email_plot_command)
+
+## write out R objects for use later
+saveRDS(taxa, file = paste(path, "/R_objects/08_taxa.rds", sep=""))

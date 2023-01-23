@@ -4,7 +4,9 @@
 #SBATCH --output=05_error_models.log
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=2
+#SBATCH -A molecolb
+#SBATCH -p molecolb
 #SBATCH --mem-per-cpu=8GB
 #SBATCH --time=24:00:00
 

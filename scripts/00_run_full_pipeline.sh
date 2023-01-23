@@ -5,7 +5,9 @@
 #SBATCH --output=00_full_dada2_pipeline.log
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=2
+#SBATCH -A molecolb
+#SBATCH -p molecolb
 #SBATCH --mem-per-cpu=8GB
 #SBATCH --time=48:00:00
 
