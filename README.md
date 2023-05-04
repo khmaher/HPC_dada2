@@ -285,10 +285,14 @@
   <br>
   <b><font size="4">3.6) Copy the dada2 R scripts</b></font>
   <br>
-  Copy the required R scripts for the dada2 workflow into your 'scripts' directory.
+  Download the required R scripts for the dada2 workflow and copy these into your 'scripts' directory.
 
   ```
-  cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/$USER/my_project/scripts
+  git clone https://github.com/khmaher/HPC_dada2
+  
+  cp HPC_dada2/scripts/* /fastdata/$USER/my_project/scripts
+  
+  rm -r HPC_dada2
   ```
   <br>
   </details>
