@@ -83,9 +83,9 @@ FWD.RC <- dada2:::rc(FWD)
 REV.RC <- dada2:::rc(REV)
 
 # Trim FWD and the reverse-complement of REV off of R1 (forward reads)
-R1.flags <- paste("-g", FWD, "-g", REV.RC, "-g", FWD.RC, "-g", REV)
+R1.flags <- paste("-g", FWD, "-a", REV.RC) 
 # Trim REV and the reverse-complement of FWD off of R2 (reverse reads)
-R2.flags <- paste("-G", FWD, "-G", REV.RC, "-G", FWD.RC, "-G", REV)
+R2.flags <- paste("-G", REV, "-A", FWD.RC)
 
 print("these are the flags")
 print(R1.flags)
