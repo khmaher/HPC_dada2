@@ -78,7 +78,7 @@
   ```
   ...where \<user\> is your The University of Sheffield (TUoS) IT username.
 
-
+  
   <br>
   <font size="4"><b>2.3) Load the Genomics Software Repository</b></font>
   <br>
@@ -106,7 +106,41 @@
   ```
   Upon re-loading, you should see the message relating to the Genomics Software Repository above.
 
-  <font size="4"><b>2.4) Running scripts on the HPC cluster</b></font>
+  
+  <br>
+  <font size="4"><b>2.4) Set up your conda profile</b></font>
+  <br>
+  If you have never run conda before on the Bessemer you might have to initialise your conda, to do this type:
+  
+  ```
+  conda init bash
+  ```
+  
+  You will then be asked to reopen your current shell. Log out and then back into Bessemer and then continue.
+   
+  <br>
+  <font size="4"><b>2.5) Set up your R environment</b></font>
+  <br>
+  If you have never used R on Bessemer you will have to first have to create a personal package library. If you 
+  have installed any packages previously move on to section 2.6 otherwise type:
+  
+  ```
+  module load R/4.0.0-foss-2020a
+  
+  R
+  ```
+  This will open up an R session. Within R you will now install the following package.
+  
+  ```
+  install.packages("ggplot2")
+  ```
+  You will be prompted to create a personal package library. Choose ‘yes’. The package will download and install 
+  from a CRAN mirror (you may be asked to select a nearby mirror, which you can do simply by entering the number 
+  of your preferred mirror). Once `ggplot2` has finished installing you can exit R by typing `q()` and entering 
+  `n` when prompted.
+    
+
+  <font size="4"><b>2.6) Running scripts on the HPC cluster</b></font>
   <br>
   Each step in the following workflow consist of two separate scripts; an R script (file extension: .R)
   and a shell script (file extension: .sh).
@@ -147,7 +181,7 @@
 
 
   <br>
-  <font size="4"><b>2.5) Passing command line arguments to a script</b></font>
+  <font size="4"><b>2.7) Passing command line arguments to a script</b></font>
   <br>
   As well as running the standardised dada2 scripts there are some parameters which will be unique to you, or
   your project. For example, these might be your primer sequences or trimming parameters.<br>
@@ -285,14 +319,10 @@
   <br>
   <b><font size="4">3.6) Copy the dada2 R scripts</b></font>
   <br>
-  Download the required R scripts for the dada2 workflow and copy these into your 'scripts' directory.
+  Copy the required R scripts for the dada2 workflow into your 'scripts' directory.
 
   ```
-  git clone https://github.com/khmaher/HPC_dada2
-  
-  cp HPC_dada2/scripts/* /fastdata/$USER/my_project/scripts
-  
-  rm -r HPC_dada2
+  cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/$USER/my_project/scripts
   ```
   <br>
   </details>
