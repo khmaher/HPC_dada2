@@ -34,7 +34,7 @@ getN <- function(x) sum(getUniques(x))
 
 requiredpackages <- c("ShortRead",
                       "Biostrings",
-                      "devtools",
+                      #"devtools",
                       "ggplot2",
                       "optparse")
 
@@ -56,6 +56,11 @@ for (pkg in requiredpackages) {
   if (pkg %in% rownames(.packages()) == FALSE)
   {suppressPackageStartupMessages(library(pkg, character.only=T))}
 }
-if ("dada2" %in% rownames(installed.packages()) == FALSE)
- {devtools::install_github("benjjneb/dada2")} #install dada2 if required
-suppressPackageStartupMessages(library("dada2"))
+#if ("dada2" %in% rownames(installed.packages()) == FALSE)
+# {devtools::install_github("benjjneb/dada2")} #install dada2 if required
+#suppressPackageStartupMessages(library("dada2"))
+if ("dada2" %in% rownames(installed.packages()) == FALSE){
+  if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager", repos="https://www.stats.bris.ac.uk/R/")
+  BiocManager::install("dada2", force=TRUE)
+}
