@@ -36,7 +36,8 @@ requiredpackages <- c("ShortRead",
                       "Biostrings",
                       #"devtools",
                       "ggplot2",
-                      "optparse")
+                      "optparse",
+		      "dada2")
 
 if ("Biostrings" %in% rownames(installed.packages()) == FALSE){
  if (!requireNamespace("BiocManager", quietly = TRUE))
