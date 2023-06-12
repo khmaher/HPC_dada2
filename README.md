@@ -206,7 +206,7 @@
   Check if you already have a directory in '/fastdata' by running the command exactly as it appears below.
 
   ```
-  ls /usr/$USER
+  ls /fastdata/$USER
   ```
 
   If you receive the message
@@ -216,7 +216,7 @@
   Then you need to create a new folder in '/fastdata' using the command exactly as it appears below:
 
   ```
-  mkdir -m 0700 /fastdata/$USER
+  mkdir -m 0755 /fastdata/$USER
   ```
 
   Create new subdirectories to keep your scripts, data files, and R objects organised:
@@ -241,17 +241,12 @@
   If you have sequenced your samples with NEOF, and have been notified that your data
   has been received, then you should be able to find your data on the HPC server.
 
-  Data is generally stored in the shared space '/shared/molecol2/NBAF/MiSeq/'.
-
-  View the data directories contained within it and identify the one that belongs to you.
-  ```
-  ls /shared/molecol2/NBAF/MiSeq/
-  ```
+  Please talk to us about where you should copy your data from.
 
   If, for example, your data directory was called 'NBAF_project_010122', then you would
   copy it onto your raw_data directory with the following:
   ```
-  cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/$USER/my_project/raw_data/
+  cp -r /fastdata/bo4kma_shared/NBAF_project_010122/ /fastdata/$USER/my_project/raw_data/
   ```
 
   Alternatively, to copy data from your personal computer onto the HPC you need to use a file transfer
@@ -319,10 +314,12 @@
   <br>
   <b><font size="4">3.6) Copy the dada2 R scripts</b></font>
   <br>
-  Copy the required R scripts for the dada2 workflow into your 'scripts' directory.
+  Download the scripts from this github repository and then copy them into your scripts folder. You can then delete the github download.
 
   ```
-  cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/$USER/my_project/scripts
+  git clone "https://github.com/khmaher/HPC_dada2"
+  cp HPC_dada2/scripts/* /fastdata/$USER/my_project/scripts
+  rm -r HPC_dada2
   ```
   <br>
   </details>
