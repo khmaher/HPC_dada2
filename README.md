@@ -416,6 +416,8 @@
   Allowing multiple occurrences of a primer to be trimmed is useful as a single read can sometimes contain multiple instances of the
   same adapter (suggested value: -N 2, default value: -N 1).
   <br><br>
+  We have also included as a default the cutadapt command --discard-untrimmed. This tells cutadapt to discard any read where the primers haven’t been trimmed off. This is especially important for any dataset where the files contain sequences amplified using more than one primer set.
+  <br><br>
   An example command is given below but you will need to replace the primer sequences with those suitable for your data.
 
   ```
