@@ -121,7 +121,7 @@ if ((!is.null(opt$copies))){
 
 # run cutadapt
 for (i in seq_along(fnFs.filtN)) {
-  eval(parse(text = paste("system2(\"cutadapt\", args=c(R1.flags, R2.flags, \"-o\", fnFs.cut[i], \"-p\", fnRs.cut[i], fnFs.filtN[i], fnRs.filtN[i], \"-j 0\" ", as.character(all_args), "))", sep="")))}
+  eval(parse(text = paste("system2(\"cutadapt\", args=c(R1.flags, R2.flags, \"-o\", fnFs.cut[i], \"-p\", fnRs.cut[i], fnFs.filtN[i], fnRs.filtN[i], \"-j 0\", \"--discard-untrimmed\" ", as.character(all_args), "))", sep="")))}
 
 post_trim_primer_counts <- rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs.cut[[1]]), 
       FWD.ReverseReads = sapply(FWD.orients, primerHits, fn = fnRs.cut[[1]]), 
