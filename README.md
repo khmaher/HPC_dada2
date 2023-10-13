@@ -143,7 +143,7 @@
 
   ```
   ## EXAMPLE, DON'T RUN
-  qsub scripts/scripts/01_run_remove_Ns.sh
+  qsub scripts/01_run_remove_Ns.sh
   ```
 
   We could then view the job that we have submitted to the job queue using 'squeue'.
@@ -343,7 +343,9 @@
   source ~/.bash_profile
   conda activate metabarcoding
   ```
-
+  
+  You should see the environment "metabarcoding" at the start of your terminal prompt, e.g. `(metabarcoding) [USERNAME@bessemer-node001]` 
+  <br>
   If any of this is missing, go back to section 3 above and double check everything.
   <br>
   <br>

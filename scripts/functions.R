@@ -30,38 +30,37 @@ get.sample.name <- function(fname) strsplit(basename(fname), "_")[[1]][2]
 ## calc reads for tracking table
 getN <- function(x) sum(getUniques(x))
 
-### check all packages are installed (run in every script)
-### archived as now installed using mamba
+## check all packages are installed (run in every script)
 
-#requiredpackages <- c("ShortRead",
-#                      "Biostrings",
-#                      #"devtools",
-#                      "ggplot2",
-#                      "optparse")
+requiredpackages <- c("ShortRead",
+                      "Biostrings",
+                      #"devtools",
+                      "ggplot2",
+                      "optparse")
 
-#if ("Biostrings" %in% rownames(installed.packages()) == FALSE){
-# if (!requireNamespace("BiocManager", quietly = TRUE))
-#    install.packages("BiocManager", repos="https://www.stats.bris.ac.uk/R/")
-# BiocManager::install("Biostrings")
-#}
-#if ("ShortRead" %in% rownames(installed.packages()) == FALSE){
-# if (!requireNamespace("BiocManager", quietly = TRUE))
-#    install.packages("BiocManager", repos="https://www.stats.bris.ac.uk/R/")
-# BiocManager::install("ShortRead", force=TRUE)
-#}
+if ("Biostrings" %in% rownames(installed.packages()) == FALSE){
+ if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager", repos="https://www.stats.bris.ac.uk/R/")
+ BiocManager::install("Biostrings")
+}
+if ("ShortRead" %in% rownames(installed.packages()) == FALSE){
+ if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager", repos="https://www.stats.bris.ac.uk/R/")
+ BiocManager::install("ShortRead", force=TRUE)
+}
 
 ## install packages if required
-#for (pkg in requiredpackages) {
-#  if (pkg %in% rownames(installed.packages()) == FALSE)
-#  {install.packages(pkg, dependencies=TRUE, repos="https://www.stats.bris.ac.uk/R/")}
-#  if (pkg %in% rownames(.packages()) == FALSE)
-#  {suppressPackageStartupMessages(library(pkg, character.only=T))}
-#}
+for (pkg in requiredpackages) {
+  if (pkg %in% rownames(installed.packages()) == FALSE)
+  {install.packages(pkg, dependencies=TRUE, repos="https://www.stats.bris.ac.uk/R/")}
+  if (pkg %in% rownames(.packages()) == FALSE)
+  {suppressPackageStartupMessages(library(pkg, character.only=T))}
+}
 #if ("dada2" %in% rownames(installed.packages()) == FALSE)
 # {devtools::install_github("benjjneb/dada2")} #install dada2 if required
-#suppressPackageStartupMessages(library("dada2"))
-#if ("dada2" %in% rownames(installed.packages()) == FALSE){
-#  if (!requireNamespace("BiocManager", quietly = TRUE))
-#    install.packages("BiocManager", repos="https://www.stats.bris.ac.uk/R/")
-#  BiocManager::install("dada2", force=TRUE)
-#}
+suppressPackageStartupMessages(library("dada2"))
+if ("dada2" %in% rownames(installed.packages()) == FALSE){
+  if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager", repos="https://www.stats.bris.ac.uk/R/")
+  BiocManager::install("dada2", force=TRUE)
+}
