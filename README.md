@@ -116,31 +116,10 @@
   conda init bash
   ```
   
-  You will then be asked to reopen your current shell. Log out and then back into Bessemer and then continue.
-   
+  You will then be asked to reopen your current shell. Log out and then back into Bessemer and then continue. 
   <br>
-  <font size="4"><b>2.5) Set up your R environment</b></font>
-  <br>
-  If you have never used R on Bessemer you will have to first have to create a personal package library. If you 
-  have installed any packages previously move on to section 2.6 otherwise type:
   
-  ```
-  module load R/4.0.0-foss-2020a
-  
-  R
-  ```
-  This will open up an R session. Within R you will now install the following package.
-  
-  ```
-  install.packages("ggplot2")
-  ```
-  You will be prompted to create a personal package library. Choose ‘yes’. The package will download and install 
-  from a CRAN mirror (you may be asked to select a nearby mirror, which you can do simply by entering the number 
-  of your preferred mirror). Once `ggplot2` has finished installing you can exit R by typing `q()` and entering 
-  `n` when prompted.
-    
-
-  <font size="4"><b>2.6) Running scripts on the HPC cluster</b></font>
+  <font size="4"><b>2.5) Running scripts on the HPC cluster</b></font>
   <br>
   Each step in the following workflow consist of two separate scripts; an R script (file extension: .R)
   and a shell script (file extension: .sh).
@@ -181,7 +160,7 @@
 
 
   <br>
-  <font size="4"><b>2.7) Passing command line arguments to a script</b></font>
+  <font size="4"><b>2.6) Passing command line arguments to a script</b></font>
   <br>
   As well as running the standardised dada2 scripts there are some parameters which will be unique to you, or
   your project. For example, these might be your primer sequences or trimming parameters.<br>
@@ -361,7 +340,8 @@
   ```
   You should also be able to load the R environment without seeing any error messages:
   ```
-  module load R/4.0.0-foss-2020a
+  source ~/.bash_profile
+  conda activate metabarcoding
   ```
 
   If any of this is missing, go back to section 3 above and double check everything.
