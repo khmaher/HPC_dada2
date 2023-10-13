@@ -45,7 +45,7 @@ if [ "$database" ]; then ARGS="$ARGS -B $database"; fi
 if [ "$email" ]; then ARGS="$ARGS -E $email"; fi
 
 ## load R and call Rscript
-module load R/4.0.0-foss-2020a
+mamba activate metabarcoding
 Rscript $PWD/scripts/08_assign_taxonomy.R $ARGS
 
  

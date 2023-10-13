@@ -94,7 +94,8 @@ fi
 ######################################################
 
 # load R
-module load R/4.0.0-foss-2020a
+source ~/.bash_profile
+conda activate metabarcoding
 
 # Remove Ns
 ## build up arg string to pass to R script

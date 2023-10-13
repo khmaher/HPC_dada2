@@ -70,6 +70,5 @@ if [ "$marker" ]; then ARGS="$ARGS -C $marker"; fi
 
 ## load R and call Rscript
 source ~/.bash_profile
-conda activate cutadapt
-module load R/4.0.0-foss-2020a
+conda activate metabarcoding
 Rscript $PWD/scripts/02_cutadapt.R $ARGS
