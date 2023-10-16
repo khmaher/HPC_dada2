@@ -49,6 +49,6 @@ if [ "$marker" ]; then ARGS="$ARGS -C $marker"; fi
 
 ## load R and call Rscript
 source ~/.bash_profile
-conda activate metabarcoding
+conda activate /usr/local/extras/Genomics/apps/mambaforge/envs/metabarcoding
 echo $ARGS
 Rscript $PWD/scripts/01_remove_Ns.R $ARGS 

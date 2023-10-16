@@ -95,7 +95,7 @@ fi
 
 # load R
 source ~/.bash_profile
-conda activate metabarcoding
+conda activate /usr/local/extras/Genomics/apps/mambaforge/envs/metabarcoding
 
 # Remove Ns
 ## build up arg string to pass to R script
