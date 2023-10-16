@@ -74,5 +74,6 @@ if [ "$subset" ]; then ARGS="$ARGS -U $subset"; fi
 if [ "$marker" ]; then ARGS="$ARGS -C $marker"; fi
 
 ## load R and call Rscript
+source ~/.bash_profile
 conda activate /usr/local/extras/Genomics/apps/mambaforge/envs/metabarcoding
 Rscript $PWD/scripts/04_filterAndTrim.R $ARGS

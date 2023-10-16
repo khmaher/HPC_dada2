@@ -36,5 +36,6 @@ if [ "$email" ]; then ARGS="$ARGS -E $email"; fi
 if [ "$marker" ]; then ARGS="$ARGS -C $marker"; fi
 
 ## load R and call Rscript
+source ~/.bash_profile
 conda activate /usr/local/extras/Genomics/apps/mambaforge/envs/metabarcoding
 Rscript $PWD/scripts/03_raw_quality_plots.R $ARGS
