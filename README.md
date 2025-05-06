@@ -1,6 +1,6 @@
 <img src="images/shef_logo.png"
      alt="Sheffield University Icon"
-     style="left; margin-right: 10px;" />
+     style="left; margin-right: 30px;" />
 <img src="images/NEOF.png"
     alt="NEOF Icon"
     style="left; margin-right: 10px;" />
