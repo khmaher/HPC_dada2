@@ -98,7 +98,7 @@
   If so, you are set up and do not need to do the following step.
   If not, enter the following:
   ```
-  echo -e "if [[ -e '/usr/local/extras/Genomics' ]];\nthen\n\tsource /usr/local/extras/Genomics/.bashrc\nfi" >> $HOME/.bash_profile
+  echo -e "if [[ -e '/mnt/community/Genomics' ]];\nthen\n\tsource /mnt/community/Genomics/.bashrc\nfi" >> $HOME/.bash_profile
   ```
   ...and then re-load your profile:
   ```
