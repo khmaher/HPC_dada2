@@ -5,8 +5,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=2
-#SBATCH -A molecolb
-#SBATCH -p molecolb
+##SBATCH -A molecolb
+##SBATCH -p molecolb
 #SBATCH --mem-per-cpu=16GB
 #SBATCH --time=24:00:00
 
@@ -46,7 +46,7 @@ if [ "$email" ]; then ARGS="$ARGS -E $email"; fi
 
 ## load R and call Rscript
 source ~/.bash_profile
-conda activate /usr/local/extras/Genomics/apps/mambaforge/envs/metabarcoding
+conda activate metabarcoding
 Rscript $PWD/scripts/08_assign_taxonomy.R $ARGS
 
  
