@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=06_derep_dada2_merge_remove_chimeras
-#SBATCH --output=06_derep_dada2_,erge_remove_chimeras.log
+#SBATCH --output=06_derep_dada2_merge_remove_chimeras.log
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=2
