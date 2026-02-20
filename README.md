@@ -341,7 +341,7 @@
   You should also be able to load the R environment without seeing any error messages:
   ```
   source ~/.bash_profile
-  conda activate /usr/local/extras/Genomics/apps/mambaforge/envs/metabarcoding
+  conda activate metabarcoding
   ```
   
   You should see the environment "metabarcoding" at the start of your terminal prompt, e.g. `(metabarcoding) [USERNAME@node001 [stanage]~]` 
